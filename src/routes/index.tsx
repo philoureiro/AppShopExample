@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { SplashScreen } from "../components"
-import MyTabs from "../components/tab-navigator"
+import { SplashScreen } from "../presentation/components"
+import MyTabs from "../presentation/components/tab-navigator"
 
 const Stack = createNativeStackNavigator()
 

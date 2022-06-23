@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "coolmovies-RN",
-    "slug": "coolmovies-RN",
+    "name": "AppShopExample-RN",
+    "slug": "AppShopExample-RN",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
