@@ -1,11 +1,17 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import Ionicons from "react-native-vector-icons/Ionicons"
-import FontAwesome from "react-native-vector-icons/FontAwesome"
+
 import Feather from "react-native-vector-icons/Feather"
 import { Dashboard, MovieDetails, Profile, Search } from "../../screens/index"
 import { BottomTabBar } from "@react-navigation/bottom-tabs"
 import { BlurView } from "expo-blur"
-
+import React from "react"
+import { View, Text } from "react-native"
+import { LinearGradient } from "expo-linear-gradient"
+import Entypo from "react-native-vector-icons/Entypo"
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
+import AntiDesign from "react-native-vector-icons/AntDesign"
+import FontAwesome from "react-native-vector-icons/FontAwesome"
+import Ionicons from "react-native-vector-icons/Ionicons"
 const Tab = createBottomTabNavigator()
 
 const MyTabs = () => {
@@ -14,16 +20,15 @@ const MyTabs = () => {
       initialRouteName="Feed"
       tabBar={(props) => (
         <BlurView
-          intensity={10}
+          intensity={1}
           style={{
-            backgroundColor: "transparent",
+            backgroundColor: "#27B161",
             justifyContent: "center",
-            height: 60,
-
-            bottom: 20,
+            height: 80,
+            bottom: 0,
             left: 0,
             right: 0,
-            borderTopLeftRadius: 10,
+            borderRadius: 30,
             position: "absolute",
           }}
         >
@@ -32,12 +37,11 @@ const MyTabs = () => {
       )}
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarActiveTintColor: "#ff2e2e",
-        tabBarInactiveTintColor: "white",
+        tabBarActiveTintColor: "white",
+        tabBarInactiveTintColor: "#c9cbcc",
         tabBarStyle: {
           backgroundColor: "transparent",
-
-          bottom: -10,
+          borderTopColor: "transparent",
           shadowColor: "#171717",
           shadowOffset: { width: -2, height: 4 },
           shadowOpacity: 0.3,
@@ -46,12 +50,27 @@ const MyTabs = () => {
       })}
     >
       <Tab.Screen
-        name="Dashboard"
+        name="Home"
         component={Dashboard}
         options={{
-          tabBarLabel: "Dashboard",
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="ios-home-outline" color={color} size={26} />
+          tabBarLabel: ({ focused }) => (
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: focused ? "bold" : "normal",
+                color: "white",
+              }}
+            >
+              Home
+            </Text>
+          ),
+
+          tabBarIcon: ({ color, focused }) => (
+            <AntiDesign
+              name="appstore-o"
+              color={color}
+              size={focused ? 32 : 25}
+            />
           ),
         }}
       />
@@ -59,20 +78,117 @@ const MyTabs = () => {
         name="Search"
         component={Search}
         options={{
-          tabBarLabel: "Search",
+          tabBarLabel: ({ focused }) => (
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: focused ? "bold" : "normal",
+                color: "white",
+              }}
+            >
+              Order
+            </Text>
+          ),
+          tabBarLabelStyle: { fontSize: 12 },
 
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="ios-search-outline" color={color} size={26} />
+          tabBarIcon: ({ color, focused }) => (
+            <FontAwesome
+              name="shopping-basket"
+              color={color}
+              size={focused ? 32 : 25}
+            />
           ),
         }}
       />
+
+      <Tab.Screen
+        name="Post"
+        component={Dashboard}
+        options={() => ({
+          tabBarLabel: "",
+
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                width: 90,
+                height: 90,
+                marginBottom: 45,
+                backgroundColor: "transparent",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                elevation: 6,
+                shadowColor: "white",
+                shadowOffset: { width: 0, height: 2 },
+                shadowOpacity: 0.2,
+                shadowRadius: 5,
+              }}
+            >
+              <View
+                style={{
+                  width: 90,
+                  height: 90,
+                  borderRadius: 45,
+                  backgroundColor: "white",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  elevation: 6,
+                  shadowColor: "white",
+                  shadowOffset: { width: 0, height: 2 },
+                  shadowOpacity: 0.2,
+                  shadowRadius: 5,
+                  padding: 8,
+                }}
+              >
+                <LinearGradient
+                  style={{
+                    borderRadius: 40,
+                    width: 80,
+                    height: 80,
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    elevation: 6,
+                    shadowColor: "#9C27B0",
+                    shadowOffset: { width: 0, height: 2 },
+                    shadowOpacity: 0.2,
+                    shadowRadius: 5,
+                  }}
+                  start={{ x: 0, y: 1 }}
+                  end={{ x: 0, y: 0 }}
+                  colors={["#27B161", "#898981"]}
+                >
+                  <MaterialCommunityIcons
+                    name="cart"
+                    size={focused ? 45 : 35}
+                    color="#FFF"
+                  />
+                </LinearGradient>
+              </View>
+            </View>
+          ),
+        })}
+      />
+
       <Tab.Screen
         name="Movie Details"
         component={MovieDetails}
         options={{
-          tabBarLabel: "Movie Details",
-          tabBarIcon: ({ color }) => (
-            <Feather name="play" color={color} size={26} />
+          tabBarLabelStyle: { fontSize: 12 },
+          tabBarLabel: ({ focused }) => (
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: focused ? "bold" : "normal",
+                color: "white",
+              }}
+            >
+              Offer
+            </Text>
+          ),
+          tabBarIcon: ({ color, focused }) => (
+            <Entypo name="shop" color={color} size={focused ? 32 : 25} />
           ),
         }}
       />
@@ -80,9 +196,20 @@ const MyTabs = () => {
         name="Profile"
         component={Profile}
         options={{
-          tabBarLabel: "Profile",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome name="user-o" color={color} size={26} />
+          tabBarLabel: ({ focused }) => (
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: focused ? "bold" : "normal",
+                color: "white",
+              }}
+            >
+              More
+            </Text>
+          ),
+          tabBarLabelStyle: { fontSize: 12 },
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name="options" color={color} size={focused ? 32 : 25} />
           ),
         }}
       />
