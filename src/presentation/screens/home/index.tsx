@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
 import { BackHandler, Image } from "react-native"
+import { SearchBar } from "../../components"
 import { Container, Text } from "./styles"
 
 const Dashboard = () => {
@@ -10,10 +11,7 @@ const Dashboard = () => {
   })
   return (
     <Container>
-      <Image
-        source={require("../../assets/images/spyder-man.jpeg")}
-        resizeMode="cover"
-      />
+      <SearchBar />
     </Container>
   )
 }

@@ -1,20 +1,15 @@
-export type ThemeType = typeof theme;
+export type ThemeType = typeof theme
 
 export const theme = {
   colors: {
-    primaryBlue: '#1C55FF',
-    gray: '#C4C4C4',
-    lightGray: '#C8C8C8',
-    darkGray: '#777777',
-    green: '#09D666',
-    black: '#000000',
-    white: '#FFFFFF',
-    lightWhite: '#E7EDFF80',
-    mediumWhite: '#E5E5E5',
-    red: '#dc3545',
+    primaryGreen: "#27B161",
+    black: "#000000",
+    white: "#FFFFFF",
+    lightWhite: "#f4f5f7",
+    gray: "#BBBDCD",
   },
   font: {
-    family: 'Poppins',
+    family: "Poppins",
     sizes: {
       small: 14,
       medium: 16,
@@ -48,4 +43,4 @@ export const theme = {
   zIndex: {
     medium: 100,
   },
-};
+}

@@ -1,8 +1,10 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import {
+  createBottomTabNavigator,
+  BottomTabBar,
+} from "@react-navigation/bottom-tabs"
 
-import Feather from "react-native-vector-icons/Feather"
 import { Dashboard, MovieDetails, Profile, Search } from "../../screens/index"
-import { BottomTabBar } from "@react-navigation/bottom-tabs"
+
 import { BlurView } from "expo-blur"
 import React from "react"
 import { View, Text } from "react-native"
@@ -12,6 +14,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import AntiDesign from "react-native-vector-icons/AntDesign"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import Ionicons from "react-native-vector-icons/Ionicons"
+import { theme } from "../../styles/theme"
 const Tab = createBottomTabNavigator()
 
 const MyTabs = () => {
@@ -22,7 +25,7 @@ const MyTabs = () => {
         <BlurView
           intensity={1}
           style={{
-            backgroundColor: "#27B161",
+            backgroundColor: theme.colors.primaryGreen,
             justifyContent: "center",
             height: 80,
             bottom: 0,
@@ -95,7 +98,7 @@ const MyTabs = () => {
             <FontAwesome
               name="shopping-basket"
               color={color}
-              size={focused ? 32 : 25}
+              size={focused ? 30 : 25}
             />
           ),
         }}
