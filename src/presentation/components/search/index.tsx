@@ -41,7 +41,11 @@ const SearchBar = () => {
           color={theme.colors.gray}
           style={{ marginRight: 10 }}
         />
-        <Input placeholder="Search" autoCapitalize="none" />
+        <Input
+          placeholder="Search"
+          placeholderTextColor="gray"
+          autoCapitalize="none"
+        />
       </BoxInput>
     </Container>
   )

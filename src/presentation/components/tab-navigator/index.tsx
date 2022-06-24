@@ -3,9 +3,8 @@ import {
   BottomTabBar,
 } from "@react-navigation/bottom-tabs"
 
-import { Dashboard, MovieDetails, Profile, Search } from "../../screens/index"
+import { Dashboard, Profile, Search } from "../../screens/index"
 
-import { BlurView } from "expo-blur"
 import React from "react"
 import { View, Text } from "react-native"
 import { LinearGradient } from "expo-linear-gradient"
@@ -22,12 +21,11 @@ const MyTabs = () => {
     <Tab.Navigator
       initialRouteName="Feed"
       tabBar={(props) => (
-        <BlurView
-          intensity={1}
+        <View
           style={{
-            backgroundColor: theme.colors.primaryGreen,
+            backgroundColor: "transparent",
             justifyContent: "center",
-            height: 80,
+            height: 90,
             bottom: 0,
             left: 0,
             right: 0,
@@ -36,9 +34,9 @@ const MyTabs = () => {
           }}
         >
           <BottomTabBar {...props} />
-        </BlurView>
+        </View>
       )}
-      screenOptions={({ route }) => ({
+      screenOptions={() => ({
         headerShown: false,
         tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: "#c9cbcc",

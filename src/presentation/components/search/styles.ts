@@ -21,7 +21,7 @@ export const TextBox = styled.View`
 
 export const BackGroundImage = styled.Image`
   height: 250px;
-  width: 100%;
+  width: 120%;
   opacity: 0.1;
   position: absolute;
 `
