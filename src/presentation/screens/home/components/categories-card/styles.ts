@@ -3,25 +3,31 @@ import { theme } from "../../../../styles/theme"
 
 export const Container = styled.View`
   background-color: white;
-  height: 35%;
+  height: 40%;
   border-radius: 25px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  padding: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
 `
 
 export const CardHeader = styled.View`
-  height: 30%;
+  height: 20%;
   justify-content: space-between;
+  /* background-color: red; */
+`
+
+export const Row = styled.View`
+  height: 1px;
+  width: 100%;
+  background-color: #ededed;
+  margin-bottom: 20px;
 `
 export const LabelBox = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-`
-export const Row = styled.View`
-  height: 1px;
-  width: 100%;
-  background-color: #ededed;
+  height: 100%;
 `
 export const Label = styled.Text`
   font-size: 20px;
@@ -32,4 +38,8 @@ export const SeeAllLabel = styled.Text`
   font-size: 16px;
   font-family: ${theme.font.family};
   color: ${theme.colors.primaryGreen};
+`
+
+export const FlatList = styled.FlatList`
+  padding-top: 5px;
 `

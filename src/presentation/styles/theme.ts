@@ -7,6 +7,7 @@ export const theme = {
     white: "#FFFFFF",
     lightWhite: "#f4f5f7",
     gray: "#BBBDCD",
+    lightGreen: "#E9F7EF",
   },
   font: {
     family: "Concert-One",
