@@ -26,11 +26,39 @@ export const BackGroundImage = styled.Image`
   position: absolute;
 `
 
+export const BoxImage = styled.View`
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+`
+
+export const ProfileImage = styled.Image`
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+`
+
 interface LabelProps {
   marginTop?: string
 }
 export const Label = styled.Text<LabelProps>`
   font-size: 18px;
+  font-family: Concert-One;
   color: ${theme.colors.lightWhite};
   margin-top: ${(props) => (props.marginTop ? props.marginTop : "0px")};
+`
+
+export const BoxInput = styled.View`
+  flex-direction: row;
+  width: 100%;
+  width: 100%;
+  height: 22%;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: white;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+`
+
+export const Input = styled.TextInput`
+  flex: 1;
 `

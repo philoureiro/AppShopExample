@@ -59,7 +59,8 @@ const MyTabs = () => {
           tabBarLabel: ({ focused }) => (
             <Text
               style={{
-                fontSize: 12,
+                fontSize: 15,
+                fontFamily: "Concert-One",
                 fontWeight: focused ? "bold" : "normal",
                 color: "white",
               }}
@@ -78,13 +79,14 @@ const MyTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Search"
+        name="Order"
         component={Search}
         options={{
           tabBarLabel: ({ focused }) => (
             <Text
               style={{
-                fontSize: 12,
+                fontSize: 15,
+                fontFamily: "Concert-One",
                 fontWeight: focused ? "bold" : "normal",
                 color: "white",
               }}
@@ -105,7 +107,7 @@ const MyTabs = () => {
       />
 
       <Tab.Screen
-        name="Post"
+        name="Cart"
         component={Dashboard}
         options={() => ({
           tabBarLabel: "",
@@ -120,7 +122,6 @@ const MyTabs = () => {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                elevation: 6,
                 shadowColor: "white",
                 shadowOffset: { width: 0, height: 2 },
                 shadowOpacity: 0.2,
@@ -136,8 +137,7 @@ const MyTabs = () => {
                   flexDirection: "row",
                   alignItems: "center",
                   justifyContent: "center",
-                  elevation: 6,
-                  shadowColor: "white",
+                  shadowColor: "black",
                   shadowOffset: { width: 0, height: 2 },
                   shadowOpacity: 0.2,
                   shadowRadius: 5,
@@ -152,8 +152,6 @@ const MyTabs = () => {
                     flexDirection: "row",
                     alignItems: "center",
                     justifyContent: "center",
-                    elevation: 6,
-                    shadowColor: "#9C27B0",
                     shadowOffset: { width: 0, height: 2 },
                     shadowOpacity: 0.2,
                     shadowRadius: 5,
@@ -175,14 +173,15 @@ const MyTabs = () => {
       />
 
       <Tab.Screen
-        name="Movie Details"
-        component={MovieDetails}
+        name="Offer"
+        component={Search}
         options={{
           tabBarLabelStyle: { fontSize: 12 },
           tabBarLabel: ({ focused }) => (
             <Text
               style={{
-                fontSize: 12,
+                fontSize: 15,
+                fontFamily: "Concert-One",
                 fontWeight: focused ? "bold" : "normal",
                 color: "white",
               }}
@@ -196,13 +195,14 @@ const MyTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Profile"
+        name="More"
         component={Profile}
         options={{
           tabBarLabel: ({ focused }) => (
             <Text
               style={{
-                fontSize: 12,
+                fontSize: 15,
+                fontFamily: "Concert-One",
                 fontWeight: focused ? "bold" : "normal",
                 color: "white",
               }}
