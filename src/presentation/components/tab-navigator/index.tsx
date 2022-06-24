@@ -23,7 +23,7 @@ const MyTabs = () => {
       tabBar={(props) => (
         <View
           style={{
-            backgroundColor: "transparent",
+            backgroundColor: theme.colors.primaryGreen,
             justifyContent: "center",
             height: 90,
             bottom: 0,

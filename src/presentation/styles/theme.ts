@@ -9,7 +9,7 @@ export const theme = {
     gray: "#BBBDCD",
   },
   font: {
-    family: "Poppins",
+    family: "Concert-One",
     sizes: {
       small: 14,
       medium: 16,
