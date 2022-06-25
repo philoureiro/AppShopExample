@@ -2,7 +2,6 @@ import React from "react"
 import { Container, LabelBox, Label, BoxImage, Image } from "./styles"
 
 const CardItem = ({ item }) => {
-  console.log("item", item)
   return (
     <Container>
       <BoxImage>

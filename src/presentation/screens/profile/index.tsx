@@ -1,11 +1,12 @@
 import React, { useEffect } from "react"
 import { BackHandler } from "react-native"
+import { theme } from "../../styles/theme"
 import { Container, Text } from "./styles"
 
 const Profile = () => {
   return (
     <Container>
-      <Text>Profile</Text>
+      <Text style={{ fontFamily: theme.font.familyBold }}>Profile</Text>
     </Container>
   )
 }

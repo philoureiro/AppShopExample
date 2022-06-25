@@ -14,14 +14,14 @@ import { View } from "native-base"
 import Ionicons from "react-native-vector-icons/Ionicons"
 import { theme } from "../../styles/theme"
 
+import FoodBackground from "../../assets/images/food-background.png"
+import ProfilePic from "../../assets/images/profile.jpg"
 LogBox.ignoreLogs(["NativeBase:"])
 
 const SearchBar = () => {
   return (
     <Container>
-      <BackGroundImage
-        source={require("../../assets/images/food-background.png")}
-      />
+      <BackGroundImage source={FoodBackground} />
 
       <TextBox>
         <View>
@@ -30,7 +30,7 @@ const SearchBar = () => {
         </View>
 
         <BoxImage>
-          <ProfileImage source={require("../../assets/images/profile.jpg")} />
+          <ProfileImage source={ProfilePic} />
         </BoxImage>
       </TextBox>
 

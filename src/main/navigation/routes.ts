@@ -1,17 +1,12 @@
 enum Routes {
-  BottomNavigation = 'bottomNavigation',
-  Home = 'home',
-  Authentication = 'authentication',
-  SignUp = 'signUp',
-  UpdateUser = 'updateUser',
-  UpdateUserAddress = 'updateUserAddress',
-  FeedbackPage = 'feedbackPage',
-  ForgotPassword = 'forgotPassword',
-  RecoveryPassword = 'recoveryPassword',
-  ResetPassword = 'resetPassword',
-  Courses = 'courses',
-  Profile = 'profile',
-  Shop = 'shop',
+  Home = "Home",
+  Profile = "Profile",
+  Order = "Order",
+  Shop = "Shop",
+  Search = "Search",
+  Offer = "Offer",
+  More = "More",
+  Cart = "Cart",
 }
 
-export default Routes;
+export default Routes

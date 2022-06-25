@@ -10,7 +10,8 @@ export const theme = {
     lightGreen: "#E9F7EF",
   },
   font: {
-    family: "Concert-One",
+    familyBold: "Roboto_700Bold",
+    familyLight: "Roboto_300Light",
     sizes: {
       small: 14,
       medium: 16,

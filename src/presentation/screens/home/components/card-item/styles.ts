@@ -16,11 +16,11 @@ export const LabelBox = styled.View`
 `
 export const Label = styled.Text`
   font-size: 16px;
-  font-family: ${theme.font.family};
+  font-family: ${theme.font.familyLight};
   text-align: center;
 `
 
-export const BoxImage = styled.View`
+export const BoxImage = styled.TouchableOpacity`
   box-shadow: rgba(149, 157, 165, 0.2) 0px 2px 2px;
   background-color: ${theme.colors.lightGreen};
   justify-content: center;

@@ -9,4 +9,5 @@ export const Container = styled.View`
   border-top-right-radius: 25px;
   margin-top: -20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  elevation: 6;
 `

@@ -6,6 +6,7 @@ export const Container = styled.View`
   height: 40%;
   border-radius: 25px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  elevation: 6;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 20px;
@@ -31,12 +32,12 @@ export const LabelBox = styled.View`
 `
 export const Label = styled.Text`
   font-size: 20px;
-  font-family: ${theme.font.family};
+  font-family: ${theme.font.familyBold};
 `
 
 export const SeeAllLabel = styled.Text`
   font-size: 16px;
-  font-family: ${theme.font.family};
+  font-family: ${theme.font.familyBold};
   color: ${theme.colors.primaryGreen};
 `
 
