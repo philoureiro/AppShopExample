@@ -53,10 +53,8 @@ const MovieDetails = () => {
           />
         </Button>
         <InfoContainer intensity={100} tint="dark">
-          <Title style={{ fontFamily: "Concert-One" }}>
-            Spyder Man: No Way Home
-          </Title>
-          <Text style={{ fontFamily: "Concert-One" }}>3 Seasons</Text>
+          <Title>Spyder Man: No Way Home</Title>
+          <Text>3 Seasons</Text>
           <Button>
             <Image
               source={require("../../assets/images/play.png")}

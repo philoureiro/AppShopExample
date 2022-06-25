@@ -11,17 +11,17 @@ import {
   BoxImage,
 } from "./styles"
 import { View } from "native-base"
-import Ionicons from "react-native-vector-icons/Ionicons"
+import { Ionicons } from "@expo/vector-icons"
 import { theme } from "../../styles/theme"
 
-import FoodBackground from "../../assets/images/food-background.png"
-import ProfilePic from "../../assets/images/profile.jpg"
 LogBox.ignoreLogs(["NativeBase:"])
 
 const SearchBar = () => {
   return (
     <Container>
-      <BackGroundImage source={FoodBackground} />
+      <BackGroundImage
+        source={require("../../assets/images/food-background.png")}
+      />
 
       <TextBox>
         <View>
@@ -30,7 +30,7 @@ const SearchBar = () => {
         </View>
 
         <BoxImage>
-          <ProfileImage source={ProfilePic} />
+          <ProfileImage source={require("../../assets/images/profile.jpg")} />
         </BoxImage>
       </TextBox>
 

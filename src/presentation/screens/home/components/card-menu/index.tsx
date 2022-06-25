@@ -13,8 +13,9 @@ import {
 
 interface CardMenuProps {
   title: string
+  marginBottom?: number
 }
-const CardMenu = ({ title }: CardMenuProps) => {
+const CardMenu = ({ title, marginBottom }: CardMenuProps) => {
   const DATA = [
     {
       id: "1",
@@ -68,12 +69,12 @@ const CardMenu = ({ title }: CardMenuProps) => {
     },
   ]
 
-  function renderItem(item) {
+  function renderItem(item: any) {
     return <CardItem item={item} />
   }
 
   return (
-    <Container>
+    <Container marginBottom={marginBottom}>
       <CardHeader>
         <LabelBox>
           <Label>{title}</Label>
@@ -86,7 +87,7 @@ const CardMenu = ({ title }: CardMenuProps) => {
       <FlatList
         data={DATA}
         renderItem={(item: any) => renderItem(item)}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item: any) => item.id}
         horizontal
       />
     </Container>

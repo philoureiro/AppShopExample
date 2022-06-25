@@ -3,9 +3,7 @@ import { BackHandler, Image, TouchableOpacity } from "react-native"
 import { BackgroundPage, SearchBar } from "../../components"
 import { Container, Text } from "./styles"
 import CardMenu from "./components/card-menu"
-import SpecialDay from "../../assets/offers/special-day.png"
-import BlackFriday from "../../assets/offers/black-friday.jpg"
-import { Center, ScrollView } from "native-base"
+import { ScrollView } from "native-base"
 
 const Dashboard = () => {
   useEffect(() => {
@@ -25,12 +23,12 @@ const Dashboard = () => {
             paddingBottom: 10,
             paddingTop: 10,
             marginBottom: 20,
-            // backgroundColor: "red",
+            minHeight: 160,
           }}
         >
           <TouchableOpacity>
             <Image
-              source={SpecialDay}
+              source={require("../../assets/offers/special-day.png")}
               style={{
                 height: 120,
                 width: 250,
@@ -42,7 +40,7 @@ const Dashboard = () => {
 
           <TouchableOpacity>
             <Image
-              source={BlackFriday}
+              source={require("../../assets/offers/black-friday.jpg")}
               style={{
                 height: 120,
                 width: 250,
@@ -52,7 +50,7 @@ const Dashboard = () => {
           </TouchableOpacity>
         </ScrollView>
 
-        <CardMenu title="Popular Deals" />
+        <CardMenu title="Popular Deals" marginBottom={200} />
       </BackgroundPage>
     </Container>
   )

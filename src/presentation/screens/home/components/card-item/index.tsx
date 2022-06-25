@@ -1,7 +1,10 @@
 import React from "react"
 import { Container, LabelBox, Label, BoxImage, Image } from "./styles"
 
-const CardItem = ({ item }) => {
+interface CardItemProps {
+  item: any
+}
+const CardItem = ({ item }: CardItemProps) => {
   return (
     <Container>
       <BoxImage>

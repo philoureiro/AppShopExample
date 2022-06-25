@@ -1,16 +1,18 @@
 import styled from "styled-components/native"
 import { theme } from "../../../../styles/theme"
 
-export const Container = styled.View`
-  background-color: white;
-  height: 35%;
+interface ContainerProps {
+  marginBottom?: number
+}
+export const Container = styled.View<ContainerProps>`
+  height: 250px;
   border-radius: 25px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   elevation: 6;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 20px;
-  margin-bottom: 10px;
+  margin-bottom: ${(props) => (props.marginBottom ? props.marginBottom : 10)}px;
 `
 
 export const CardHeader = styled.View`
@@ -33,12 +35,13 @@ export const LabelBox = styled.View`
 `
 export const Label = styled.Text`
   font-size: 20px;
-  font-family: ${theme.font.familyBold};
+  font-family: ${theme.font.family};
+  font-weight: ${theme.font.weight.bold};
 `
 
 export const SeeAllLabel = styled.Text`
   font-size: 16px;
-  font-family: ${theme.font.familyBold};
+  font-family: ${theme.font.family};
   color: ${theme.colors.primaryGreen};
 `
 

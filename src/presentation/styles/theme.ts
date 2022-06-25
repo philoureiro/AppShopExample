@@ -10,8 +10,8 @@ export const theme = {
     lightGreen: "#E9F7EF",
   },
   font: {
-    familyBold: "Roboto_700Bold",
-    familyLight: "Roboto_300Light",
+    family: "Teko-Bold",
+
     sizes: {
       small: 14,
       medium: 16,

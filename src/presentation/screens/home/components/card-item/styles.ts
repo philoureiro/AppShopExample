@@ -16,7 +16,7 @@ export const LabelBox = styled.View`
 `
 export const Label = styled.Text`
   font-size: 16px;
-  font-family: ${theme.font.familyLight};
+  font-family: ${theme.font.family};
   text-align: center;
 `
 

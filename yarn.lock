@@ -1186,16 +1186,6 @@
   resolved "https://registry.npmjs.org/@emotion/unitless/-/unitless-0.7.5.tgz"
   integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
 
-"@expo-google-fonts/inter@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@expo-google-fonts/inter/-/inter-0.2.2.tgz#bd5624be6c92e7621aa9ddb5bd72757604729121"
-  integrity sha512-dU6mSczI2xkRZbUhQQ5VB+D4AqLOF8ufCIfA1iBjrPZ/Qnka88E5Ez2Mvm41exdKR76norVvYD5GJIQYEEoO/Q==
-
-"@expo-google-fonts/roboto@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@expo-google-fonts/roboto/-/roboto-0.2.2.tgz#0a9f4685e8d02bdb0d2d2919c102f531bdb353d4"
-  integrity sha512-qP0oZsR8rTID5T9wEXSt9yCYMnKYKlvIlrJGGpd+t71Obt2J51+51PBpvxd5c8fpABEru3zx6ENmpU9lzwr8zw==
-
 "@expo/config-plugins@4.0.6":
   version "4.0.6"
   resolved "https://registry.npmjs.org/@expo/config-plugins/-/config-plugins-4.0.6.tgz"
@@ -1401,6 +1391,11 @@
     lodash.omit "^4.5.0"
     lodash.pick "^4.4.0"
     lodash.template "^4.5.0"
+
+"@expo/vector-icons@^13.0.0":
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-13.0.0.tgz#e2989b85e95a82bce216f88cf8fb583ab050ec95"
+  integrity sha512-TI+l71+5aSKnShYclFa14Kum+hQMZ86b95SH6tQUG3qZEmLTarvWpKwqtTwQKqvlJSJrpFiSFu3eCuZokY6zWA==
 
 "@formatjs/ecma402-abstract@1.11.4":
   version "1.11.4"
@@ -2526,25 +2521,17 @@
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.4.tgz"
   integrity sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==
 
-"@types/react-native-vector-icons@^6.4.10":
-  version "6.4.10"
-  resolved "https://registry.npmjs.org/@types/react-native-vector-icons/-/react-native-vector-icons-6.4.10.tgz"
-  integrity sha512-z4sexbuZ7nmYsp7Z9YB5fSQoN3KFn6nZA3QsCkQLOYnVmVlxX4U22v/bM9Xx/6dOA1vClxoRZo2CFDX16uryXQ==
-  dependencies:
-    "@types/react" "*"
-    "@types/react-native" "*"
-
-"@types/react-native@*", "@types/react-native@~0.64.12":
-  version "0.64.24"
-  resolved "https://registry.npmjs.org/@types/react-native/-/react-native-0.64.24.tgz"
-  integrity sha512-qgqOJub7BYsAkcg3VSL3w63cgJdLoMmAX6TSTAPL53heCzUkIdtpWqjyNRH0n7jPjxPGG1Qmsv6GSUh7IfyqRg==
-  dependencies:
-    "@types/react" "*"
-
 "@types/react-native@^0.65":
   version "0.65.21"
   resolved "https://registry.npmjs.org/@types/react-native/-/react-native-0.65.21.tgz"
   integrity sha512-6TmhHLEBH7xMOBG+MIExOILOEI+nq/VHmlAJZ7SynJ+/ezG318EFrrxDPge46WPqWT25ZbnhSR6uxzBn7TDRbQ==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-native@~0.64.12":
+  version "0.64.24"
+  resolved "https://registry.npmjs.org/@types/react-native/-/react-native-0.64.24.tgz"
+  integrity sha512-qgqOJub7BYsAkcg3VSL3w63cgJdLoMmAX6TSTAPL53heCzUkIdtpWqjyNRH0n7jPjxPGG1Qmsv6GSUh7IfyqRg==
   dependencies:
     "@types/react" "*"
 
@@ -3166,15 +3153,6 @@ cliui@^6.0.0:
     string-width "^4.2.0"
     strip-ansi "^6.0.0"
     wrap-ansi "^6.2.0"
-
-cliui@^7.0.2:
-  version "7.0.4"
-  resolved "https://registry.npmjs.org/cliui/-/cliui-7.0.4.tgz"
-  integrity sha512-OcRE68cOsVMXp1Yvonl/fzkQOyjLSu/8bhPDfQt0e0/Eb283TKP20Fs2MqoPsr9SwA595rRCA+QMzYc9nBP+JQ==
-  dependencies:
-    string-width "^4.2.0"
-    strip-ansi "^6.0.0"
-    wrap-ansi "^7.0.0"
 
 clone-deep@^4.0.1:
   version "4.0.1"
@@ -3802,13 +3780,6 @@ expo-file-system@~13.1.3:
     "@expo/config-plugins" "^4.0.2"
     uuid "^3.4.0"
 
-expo-font@^10.1.0:
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/expo-font/-/expo-font-10.1.0.tgz#2e8f8954943c5afca8444c1ffb1d74623c6a4fb6"
-  integrity sha512-vmhzpE95Ym4iOj8IELof+C/3Weert2B3LyxV5rBjGosjzBdov+o+S6b5mN7Yc9kyEGykwB6k7npL45X3hFYDQA==
-  dependencies:
-    fontfaceobserver "^2.1.0"
-
 expo-font@~10.0.5:
   version "10.0.5"
   resolved "https://registry.npmjs.org/expo-font/-/expo-font-10.0.5.tgz"
@@ -4160,7 +4131,7 @@ gensync@^1.0.0-beta.2:
   resolved "https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.2.tgz"
   integrity sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==
 
-get-caller-file@^2.0.1, get-caller-file@^2.0.5:
+get-caller-file@^2.0.1:
   version "2.0.5"
   resolved "https://registry.npmjs.org/get-caller-file/-/get-caller-file-2.0.5.tgz"
   integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
@@ -6051,14 +6022,6 @@ react-native-svg@9.13:
     css-select "^2.0.2"
     css-tree "^1.0.0-alpha.37"
 
-react-native-vector-icons@^9.1.0:
-  version "9.1.0"
-  resolved "https://registry.npmjs.org/react-native-vector-icons/-/react-native-vector-icons-9.1.0.tgz"
-  integrity sha512-2AHZ/h9d/+rC0odz+OwbGNlc1Lik/pHhSixn4HfC8RtQ8CxfSBZ6gg7bTLcZhdSvZN+ZEGi30Fj+ZnOSQy+smg==
-  dependencies:
-    prop-types "^15.7.2"
-    yargs "^16.1.1"
-
 react-native-web@0.17.1:
   version "0.17.1"
   resolved "https://registry.npmjs.org/react-native-web/-/react-native-web-0.17.1.tgz"
@@ -7104,15 +7067,6 @@ wrap-ansi@^6.2.0:
     string-width "^4.1.0"
     strip-ansi "^6.0.0"
 
-wrap-ansi@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz"
-  integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
-  dependencies:
-    ansi-styles "^4.0.0"
-    string-width "^4.1.0"
-    strip-ansi "^6.0.0"
-
 wrappy@1:
   version "1.0.2"
   resolved "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz"
@@ -7210,11 +7164,6 @@ y18n@^4.0.0:
   resolved "https://registry.npmjs.org/y18n/-/y18n-4.0.3.tgz"
   integrity sha512-JKhqTOwSrqNA1NY5lSztJ1GrBiUodLMmIZuLiDaMRJ+itFd+ABVE8XBjOvIWL+rSqNDC74LCSFmlb/U4UZ4hJQ==
 
-y18n@^5.0.5:
-  version "5.0.8"
-  resolved "https://registry.npmjs.org/y18n/-/y18n-5.0.8.tgz"
-  integrity sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==
-
 yallist@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/yallist/-/yallist-4.0.0.tgz"
@@ -7227,11 +7176,6 @@ yargs-parser@^18.1.2:
   dependencies:
     camelcase "^5.0.0"
     decamelize "^1.2.0"
-
-yargs-parser@^20.2.2:
-  version "20.2.9"
-  resolved "https://registry.npmjs.org/yargs-parser/-/yargs-parser-20.2.9.tgz"
-  integrity sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==
 
 yargs@^15.1.0, yargs@^15.3.1:
   version "15.4.1"
@@ -7249,19 +7193,6 @@ yargs@^15.1.0, yargs@^15.3.1:
     which-module "^2.0.0"
     y18n "^4.0.0"
     yargs-parser "^18.1.2"
-
-yargs@^16.1.1:
-  version "16.2.0"
-  resolved "https://registry.npmjs.org/yargs/-/yargs-16.2.0.tgz"
-  integrity sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw==
-  dependencies:
-    cliui "^7.0.2"
-    escalade "^3.1.1"
-    get-caller-file "^2.0.5"
-    require-directory "^2.1.1"
-    string-width "^4.2.0"
-    y18n "^5.0.5"
-    yargs-parser "^20.2.2"
 
 yocto-queue@^0.1.0:
   version "0.1.0"
