@@ -6,7 +6,7 @@ import { Container, Text } from "./styles"
 const Profile = () => {
   return (
     <Container>
-      <Text style={{ fontFamily: theme.font.familyBold }}>Profile</Text>
+      {/* <Text style={{ fontFamily: theme.font.family }}>Profile</Text> */}
     </Container>
   )
 }

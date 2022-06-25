@@ -33,12 +33,14 @@ export const LabelBox = styled.View`
 `
 export const Label = styled.Text`
   font-size: 20px;
-  font-family: ${theme.font.familyBold};
+  font-family: ${theme.font.family};
+  font-weight: ${theme.font.weight.bold};
 `
 
 export const SeeAllLabel = styled.Text`
   font-size: 16px;
-  font-family: ${theme.font.familyBold};
+  font-family: ${theme.font.family};
+  /* font-weight: ${theme.font.weight.bold}; */
   color: ${theme.colors.primaryGreen};
 `
 

@@ -28,13 +28,13 @@ export const BackGroundImage = styled.Image`
 
 export const BoxImage = styled.TouchableOpacity`
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  elevation: 6;
 `
 
 export const ProfileImage = styled.Image`
   height: 60px;
   width: 60px;
   border-radius: 30px;
-  elevation: 6;
 `
 
 interface LabelProps {
@@ -42,7 +42,8 @@ interface LabelProps {
 }
 export const Label = styled.Text<LabelProps>`
   font-size: 18px;
-  font-family: ${theme.font.familyBold};
+  font-family: ${theme.font.family};
+  font-weight: ${theme.font.weight.bold};
   color: ${theme.colors.lightWhite};
   margin-top: ${(props) => (props.marginTop ? props.marginTop : "0px")};
 `

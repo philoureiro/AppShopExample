@@ -17,8 +17,9 @@ interface LabelProps {
 export const Label = styled.Text<LabelProps>`
   color: ${(props) =>
     props.isSelected ? theme.colors.white : theme.colors.gray};
-  font-family: ${theme.font.familyBold};
+  font-family: ${theme.font.family};
   font-size: 14px;
   margin-top: 2px;
   margin-bottom: 5px;
+  font-weight: ${theme.font.weight.bold};
 `
