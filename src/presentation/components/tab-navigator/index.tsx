@@ -120,7 +120,7 @@ const ThemeScreen = () => {
         <CurvedBottomBar.Screen
           name="Order"
           position="LEFT"
-          children={() => <Dashboard />}
+          children={() => <Profile />}
         />
         <CurvedBottomBar.Screen
           name="Cart"

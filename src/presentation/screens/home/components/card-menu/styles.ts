@@ -3,13 +3,14 @@ import { theme } from "../../../../styles/theme"
 
 export const Container = styled.View`
   background-color: white;
-  height: 40%;
+  height: 35%;
   border-radius: 25px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   elevation: 6;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 20px;
+  margin-bottom: 10px;
 `
 
 export const CardHeader = styled.View`

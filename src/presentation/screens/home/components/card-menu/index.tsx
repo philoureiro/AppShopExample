@@ -11,7 +11,10 @@ import {
   FlatList,
 } from "./styles"
 
-const CategoriesCard = () => {
+interface CardMenuProps {
+  title: string
+}
+const CardMenu = ({ title }: CardMenuProps) => {
   const DATA = [
     {
       id: "1",
@@ -73,7 +76,7 @@ const CategoriesCard = () => {
     <Container>
       <CardHeader>
         <LabelBox>
-          <Label>Categories</Label>
+          <Label>{title}</Label>
           <TouchableOpacity>
             <SeeAllLabel>See All</SeeAllLabel>
           </TouchableOpacity>
@@ -90,4 +93,4 @@ const CategoriesCard = () => {
   )
 }
 
-export default CategoriesCard
+export default CardMenu
