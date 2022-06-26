@@ -1,12 +1,9 @@
 import { View, Text } from "react-native"
 import React from "react"
+import { DefaultScreen } from "../../components"
 
 const Cart = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Cart</Text>
-    </View>
-  )
+  return <DefaultScreen namePage="Cart" showHeader></DefaultScreen>
 }
 
 export default Cart

@@ -1,5 +1,8 @@
+import { useNavigation } from "@react-navigation/native"
 import React from "react"
-import { TouchableOpacity, Text } from "react-native"
+import { TouchableOpacity } from "react-native"
+import Routes from "../../../../../main/navigation/routes-types"
+
 import CardItem from "../card-item"
 import {
   Container,
@@ -73,12 +76,20 @@ const CardMenu = ({ title, marginBottom }: CardMenuProps) => {
     return <CardItem item={item} />
   }
 
+  const navigation = useNavigation()
+
   return (
     <Container marginBottom={marginBottom}>
       <CardHeader>
         <LabelBox>
           <Label>{title}</Label>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate(
+                title === "Categories" ? Routes.Categories : Routes.PopularDeals
+              )
+            }
+          >
             <SeeAllLabel>See All</SeeAllLabel>
           </TouchableOpacity>
         </LabelBox>

@@ -1,9 +1,11 @@
 import React, { useEffect } from "react"
 import { BackHandler, Image, TouchableOpacity } from "react-native"
-import { BackgroundPage, SearchBar } from "../../components"
+import { DefaultScreen, SearchBar } from "../../components"
 import { Container, Text } from "./styles"
 import CardMenu from "./components/card-menu"
 import { ScrollView } from "native-base"
+import { useNavigation } from "@react-navigation/native"
+import Routes from "../../../main/navigation/routes-types"
 
 const Dashboard = () => {
   useEffect(() => {
@@ -11,10 +13,12 @@ const Dashboard = () => {
       return true
     })
   })
+
+  const navigation = useNavigation()
   return (
     <Container>
       <SearchBar />
-      <BackgroundPage>
+      <DefaultScreen>
         <CardMenu title="Categories" />
         <ScrollView
           horizontal
@@ -26,7 +30,7 @@ const Dashboard = () => {
             marginBottom: 10,
           }}
         >
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate(Routes.Offer)}>
             <Image
               source={require("../../assets/offers/special-day.png")}
               style={{
@@ -38,9 +42,31 @@ const Dashboard = () => {
             />
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate(Routes.Offer)}>
             <Image
               source={require("../../assets/offers/black-friday.jpg")}
+              style={{
+                height: 120,
+                width: 250,
+                borderRadius: 25,
+                marginRight: 10,
+              }}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate(Routes.Offer)}>
+            <Image
+              source={require("../../assets/offers/black-friday3.jpg")}
+              style={{
+                height: 120,
+                width: 250,
+                borderRadius: 25,
+                marginRight: 10,
+              }}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate(Routes.Offer)}>
+            <Image
+              source={require("../../assets/offers/black-friday2.jpg")}
               style={{
                 height: 120,
                 width: 250,
@@ -51,7 +77,7 @@ const Dashboard = () => {
         </ScrollView>
 
         <CardMenu title="Popular Deals" marginBottom={200} />
-      </BackgroundPage>
+      </DefaultScreen>
     </Container>
   )
 }

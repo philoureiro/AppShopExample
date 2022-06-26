@@ -1,12 +1,9 @@
 import { View, Text } from "react-native"
 import React from "react"
+import { DefaultScreen } from "../../components"
 
 const Order = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Order</Text>
-    </View>
-  )
+  return <DefaultScreen namePage="Order" showHeader></DefaultScreen>
 }
 
 export default Order

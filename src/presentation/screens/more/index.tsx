@@ -1,12 +1,8 @@
-import { View, Text } from "react-native"
 import React from "react"
+import { DefaultScreen } from "../../components"
 
 const More = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>More</Text>
-    </View>
-  )
+  return <DefaultScreen namePage="More" showHeader></DefaultScreen>
 }
 
 export default More

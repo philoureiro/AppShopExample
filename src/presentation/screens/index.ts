@@ -1,6 +1,7 @@
 export { default as Home } from "./home"
 export { default as AtDiscount } from "./at-discount"
 export { default as Categories } from "./categories"
+export { default as PopularDeals } from "./popular-deals"
 export { default as Category } from "./category"
 export { default as Profile } from "./profile"
 export { default as Cart } from "./cart"

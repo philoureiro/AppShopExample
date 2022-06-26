@@ -1,4 +1,6 @@
 export { default as TabNavigator } from "./tab-navigator"
 export { default as SplashScreen } from "./splash-screen"
 export { default as SearchBar } from "./search-header"
-export { default as BackgroundPage } from "./background-page"
+export { default as Header } from "./header"
+export { default as DefaultScreen } from "./default-screen"
+export { default as DefaultCard } from "./default-card"

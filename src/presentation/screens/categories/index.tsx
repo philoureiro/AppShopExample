@@ -1,12 +1,9 @@
 import { View, Text } from "react-native"
 import React from "react"
+import { DefaultScreen } from "../../components"
 
 const Categories = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Categories</Text>
-    </View>
-  )
+  return <DefaultScreen namePage="Categories" showHeader></DefaultScreen>
 }
 
 export default Categories
