@@ -22,8 +22,8 @@ const Dashboard = () => {
           style={{
             paddingBottom: 10,
             paddingTop: 10,
-            marginBottom: 20,
             minHeight: 160,
+            marginBottom: 10,
           }}
         >
           <TouchableOpacity>

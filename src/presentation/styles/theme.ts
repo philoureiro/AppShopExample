@@ -10,7 +10,7 @@ export const theme = {
     lightGreen: "#E9F7EF",
   },
   font: {
-    family: "Teko-Bold",
+    family: "Times New Roman",
 
     sizes: {
       small: 14,

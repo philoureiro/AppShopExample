@@ -1,38 +1,43 @@
-import { View, Text, Image } from "react-native"
+import { View, Text } from "react-native"
 import React from "react"
 import LottieView from "lottie-react-native"
 import { useNavigation } from "@react-navigation/native"
+import { Container } from "./styles"
 
 const SplashScreen = () => {
   const navigationRef = useNavigation()
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#0a0117",
-
-        padding: 30,
-      }}
-    >
+    <Container>
       <LottieView
         source={require("./splashScreen.json")}
         autoPlay
         loop={false}
         autoSize
+        style={{ width: "100%", marginBottom: 15, marginTop: "10%" }}
         onAnimationFinish={() => navigationRef.navigate("MyTabs")}
       />
-      <Image
-        source={require("./coolMovies.png")}
+      <View
         style={{
-          marginTop: -20,
-          height: 210,
-          width: 400,
+          marginTop: 20,
+          justifyContent: "center",
+          alignItems: "center",
         }}
-      />
-    </View>
+      >
+        <Text style={{ fontWeight: "bold", fontSize: 20 }}>
+          App Shop Example.
+        </Text>
+        <Text
+          style={{
+            fontWeight: "regular",
+            fontSize: 14,
+            marginTop: 5,
+          }}
+        >
+          Created by: @philoureiro
+        </Text>
+      </View>
+    </Container>
   )
 }
 

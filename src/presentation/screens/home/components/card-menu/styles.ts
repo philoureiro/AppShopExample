@@ -8,7 +8,7 @@ export const Container = styled.View<ContainerProps>`
   height: 250px;
   border-radius: 25px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  elevation: 6;
+  elevation: 1;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 20px;
