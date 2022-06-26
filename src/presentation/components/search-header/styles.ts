@@ -27,7 +27,7 @@ export const BackGroundImage = styled.Image`
 `
 
 export const BoxImage = styled.TouchableOpacity`
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: gray 0px 3px 8px;
   elevation: 6;
 `
 
@@ -58,7 +58,7 @@ export const BoxInput = styled.View`
   background-color: white;
   justify-content: flex-start;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: gray 0px 3px 8px;
   elevation: 6;
 `
 

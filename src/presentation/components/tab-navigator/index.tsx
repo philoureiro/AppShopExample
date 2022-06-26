@@ -1,5 +1,5 @@
 import React from "react"
-import { StyleSheet, TouchableOpacity, View, Text } from "react-native"
+import { StyleSheet, TouchableOpacity, View } from "react-native"
 import { CurvedBottomBar } from "react-native-curved-bottom-bar"
 import {
   Ionicons,
@@ -8,10 +8,10 @@ import {
   MaterialCommunityIcons,
   Entypo,
 } from "@expo/vector-icons"
-import { Dashboard, Profile, Search } from "../../screens"
+import { Cart, Home, More, Offer, Order } from "../../screens"
 import { theme } from "../../styles/theme"
 import { Container, Label } from "./styles"
-import Routes from "../../../main/navigation/routes"
+import Routes from "../../../main/navigation/routes-types"
 
 const ThemeScreen = () => {
   function handleNavigate(navigate: any, routeName: any) {
@@ -116,27 +116,27 @@ const ThemeScreen = () => {
         <CurvedBottomBar.Screen
           name="Home"
           position="LEFT"
-          children={() => <Dashboard />}
+          children={() => <Home />}
         />
 
         <CurvedBottomBar.Screen
           name="Order"
           position="LEFT"
-          children={() => <Profile />}
+          children={() => <Order />}
         />
         <CurvedBottomBar.Screen
           name="Cart"
-          children={() => <Search />}
+          children={() => <Cart />}
           position="CENTER"
         />
         <CurvedBottomBar.Screen
           name="Offer"
-          children={() => <Profile />}
+          children={() => <Offer />}
           position="RIGHT"
         />
         <CurvedBottomBar.Screen
           name="More"
-          children={() => <Profile />}
+          children={() => <More />}
           position="RIGHT"
         />
       </CurvedBottomBar.Navigator>

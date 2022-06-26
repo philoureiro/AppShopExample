@@ -8,6 +8,6 @@ export const Container = styled.ScrollView`
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   margin-top: -20px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: gray 0px 3px 8px;
   elevation: 6;
 `

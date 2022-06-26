@@ -21,19 +21,20 @@ export const Label = styled.Text`
 `
 
 export const BoxImage = styled.TouchableOpacity`
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 2px 2px;
+  box-shadow: gray 0px 0px 0px;
   background-color: ${theme.colors.lightGreen};
   justify-content: center;
   padding: 5px;
   align-items: center;
-  width: 100%;
+  width: 90px;
+  height: 90px;
   border-radius: 20px;
   margin-bottom: 5px;
   margin-top: 10px;
 `
 
 export const Image = styled.Image`
-  height: 80px;
-  width: 80px;
+  height: 70px;
+  width: 70px;
   border-radius: 20px;
 `

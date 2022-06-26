@@ -5,9 +5,10 @@ interface ContainerProps {
   marginBottom?: number
 }
 export const Container = styled.View<ContainerProps>`
-  height: 250px;
+  height: 225px;
+  background-color: white;
   border-radius: 25px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: gray 0px 0px 1px;
   elevation: 1;
   padding-left: 20px;
   padding-right: 20px;

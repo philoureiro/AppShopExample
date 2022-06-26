@@ -10,7 +10,9 @@ const CardItem = ({ item }: CardItemProps) => {
       <BoxImage>
         <Image
           //${item.item.url}
-          source={require(`../../../../assets/images/fruits/strawberry.png`)}
+          source={{
+            uri: "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg",
+          }}
         />
       </BoxImage>
       <LabelBox>
