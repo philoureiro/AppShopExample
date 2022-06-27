@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { BackHandler, Image, TouchableOpacity } from "react-native"
 import { DefaultScreen, SearchBar } from "../../components"
-import { Container, Text } from "./styles"
+import { Container } from "./styles"
 import CardMenu from "./components/card-menu"
 import { ScrollView } from "native-base"
 import { useNavigation } from "@react-navigation/native"
@@ -18,7 +18,7 @@ const Dashboard = () => {
   return (
     <Container>
       <SearchBar />
-      <DefaultScreen>
+      <DefaultScreen namePage="Home" scroollable>
         <CardMenu title="Categories" />
         <ScrollView
           horizontal

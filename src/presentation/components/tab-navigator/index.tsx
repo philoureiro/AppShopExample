@@ -20,6 +20,7 @@ import {
   TabBar,
 } from "./styles"
 import Routes from "../../../main/navigation/routes-types"
+import { View } from "react-native"
 
 const ThemeScreen = () => {
   function handleNavigate(navigate: any, routeName: any) {

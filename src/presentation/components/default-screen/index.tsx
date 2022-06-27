@@ -1,14 +1,16 @@
 import React from "react"
 import Header from "../header"
-import { Container } from "./styles"
+import { Container, Scroll } from "./styles"
 
 interface IDefaultScreen {
   namePage: string
   showHeader?: boolean
   children: React.ReactNode
   height?: number
+  scroollable?: boolean
 }
 const DefaultScreen = ({
+  scroollable,
   children,
   namePage,
   showHeader,
@@ -18,7 +20,11 @@ const DefaultScreen = ({
     <>
       {showHeader && <Header label={namePage} />}
 
-      <Container height={height}>{children}</Container>
+      {scroollable ? (
+        <Scroll height={height}>{children}</Scroll>
+      ) : (
+        <Container height={height}>{children}</Container>
+      )}
     </>
   )
 }

@@ -9,7 +9,7 @@ const Offer = () => {
   const navigation = useNavigation()
   return (
     <View style={{ flex: 1 }}>
-      <DefaultScreen namePage="Offer" showHeader>
+      <DefaultScreen namePage="Offer" showHeader scroollable>
         <DefaultCard marginBottom={200}>
           <TouchableOpacity
             style={{ flex: 1 }}

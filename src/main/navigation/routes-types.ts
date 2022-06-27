@@ -10,6 +10,8 @@ enum Routes {
   Categories = "Categories",
   PopularDeals = "PopularDeals",
   AtDiscount = "AtDiscount",
+  Category = "Category",
+  Product = "Product",
 }
 
 export default Routes
