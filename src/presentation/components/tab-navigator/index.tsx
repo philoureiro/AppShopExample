@@ -1,5 +1,4 @@
 import React from "react"
-import { StyleSheet, TouchableOpacity, View } from "react-native"
 import { CurvedBottomBar } from "react-native-curved-bottom-bar"
 import {
   Ionicons,
@@ -10,7 +9,16 @@ import {
 } from "@expo/vector-icons"
 import { Cart, Home, More, Offer, Order } from "../../screens"
 import { theme } from "../../styles/theme"
-import { Container, Label } from "./styles"
+import {
+  CircleButton,
+  Container,
+  IconAndFlagBox,
+  InternalCircle,
+  Label,
+  Tag,
+  Text,
+  TabBar,
+} from "./styles"
 import Routes from "../../../main/navigation/routes-types"
 
 const ThemeScreen = () => {
@@ -41,7 +49,7 @@ const ThemeScreen = () => {
           <MaterialCommunityIcons
             name="cart"
             color={theme.colors.primaryGreen}
-            size={routeName === selectedTab ? 36 : 25}
+            size={routeName === selectedTab ? 30 : 25}
           />
         )
 
@@ -74,42 +82,29 @@ const ThemeScreen = () => {
         borderTopLeftRight={true}
         initialRouteName="Home"
         renderCircle={({ navigate, selectedTab }) => (
-          <TouchableOpacity
-            style={styles.btnCircle}
+          <CircleButton
             onPress={() => {
               handleNavigate(navigate, selectedTab)
             }}
           >
-            <View
-              style={{
-                backgroundColor: "white",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "75%",
-                height: "75%",
-                borderRadius: 50,
-              }}
-            >
+            <InternalCircle>
+              <IconAndFlagBox>
+                <Tag source={require("../../assets/icons/tag.png")} />
+                <Text>99</Text>
+              </IconAndFlagBox>
               {returnIconSelected("Cart", selectedTab)}
-            </View>
-          </TouchableOpacity>
+            </InternalCircle>
+          </CircleButton>
         )}
         tabBar={({ navigate, routeName, selectedTab }) => {
           return (
-            <TouchableOpacity
-              onPress={() => handleNavigate(navigate, routeName)}
-              style={{
-                flex: 1,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
+            <TabBar onPress={() => handleNavigate(navigate, routeName)}>
               {returnIconSelected(routeName, selectedTab)}
 
               <Label isSelected={routeName === selectedTab ? true : false}>
                 {routeName}
               </Label>
-            </TouchableOpacity>
+            </TabBar>
           )
         }}
       >
@@ -145,36 +140,3 @@ const ThemeScreen = () => {
 }
 
 export default ThemeScreen
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  btnCircle: {
-    width: 65,
-    height: 65,
-    borderRadius: 35,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: theme.colors.primaryGreen,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-    elevation: 6,
-    bottom: 24,
-  },
-
-  imgCircle: {
-    width: 35,
-    height: 35,
-    backgroundColor: "red",
-  },
-  img: {
-    width: 35,
-    height: 35,
-  },
-})

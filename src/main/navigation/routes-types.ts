@@ -9,6 +9,7 @@ enum Routes {
   Cart = "Cart",
   Categories = "Categories",
   PopularDeals = "PopularDeals",
+  AtDiscount = "AtDiscount",
 }
 
 export default Routes

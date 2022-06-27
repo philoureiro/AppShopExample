@@ -3,7 +3,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import React from "react"
 import { SplashScreen } from "../../presentation/components"
 import MyTabs from "../../presentation/components/tab-navigator"
-import { Categories, PopularDeals } from "../../presentation/screens"
+import {
+  AtDiscount,
+  Categories,
+  PopularDeals,
+} from "../../presentation/screens"
 
 const Stack = createNativeStackNavigator()
 
@@ -19,6 +23,7 @@ const Routes = () => {
         />
         <Stack.Screen name="Categories" component={Categories} />
         <Stack.Screen name="PopularDeals" component={PopularDeals} />
+        <Stack.Screen name="AtDiscount" component={AtDiscount} />
       </Stack.Navigator>
     </NavigationContainer>
   )

@@ -1,48 +1,59 @@
-import { View, Image } from "react-native"
+import { View, Image, TouchableOpacity } from "react-native"
 import React from "react"
 import { DefaultCard, DefaultScreen } from "../../components"
+import { useNavigation } from "@react-navigation/native"
+import Routes from "../../../main/navigation/routes-types"
+import { getWidthSize } from "../../../utils/responsivity"
 
 const Offer = () => {
+  const navigation = useNavigation()
   return (
     <View style={{ flex: 1 }}>
       <DefaultScreen namePage="Offer" showHeader>
         <DefaultCard marginBottom={200}>
-          <Image
-            source={require("../../assets/offers/special-day.png")}
-            style={{
-              height: 150,
-              width: "100%",
-              borderRadius: 25,
-            }}
-          />
+          <TouchableOpacity
+            style={{ flex: 1 }}
+            onPress={() => navigation.navigate(Routes.AtDiscount)}
+          >
+            <Image
+              source={require("../../assets/offers/special-day.png")}
+              style={{
+                height: 150,
+                width: getWidthSize(320),
+                borderRadius: 25,
+              }}
+            />
+          </TouchableOpacity>
 
-          <Image
-            source={require("../../assets/offers/black-friday.jpg")}
-            style={{
-              height: 150,
-              width: "100%",
-              borderRadius: 25,
-              marginTop: 20,
-            }}
-          />
-          <Image
-            source={require("../../assets/offers/black-friday3.jpg")}
-            style={{
-              height: 150,
-              width: "100%",
-              borderRadius: 25,
-              marginTop: 20,
-            }}
-          />
-          <Image
-            source={require("../../assets/offers/black-friday2.jpg")}
-            style={{
-              height: 150,
-              width: "100%",
-              borderRadius: 25,
-              marginTop: 20,
-            }}
-          />
+          <TouchableOpacity
+            style={{ flex: 1 }}
+            onPress={() => navigation.navigate(Routes.AtDiscount)}
+          >
+            <Image
+              source={require("../../assets/offers/black-friday3.jpg")}
+              style={{
+                height: 150,
+                width: getWidthSize(320),
+                borderRadius: 25,
+                marginTop: 20,
+              }}
+            />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={{ flex: 1 }}
+            onPress={() => navigation.navigate(Routes.AtDiscount)}
+          >
+            <Image
+              source={require("../../assets/offers/black-friday2.jpg")}
+              style={{
+                height: 150,
+                width: getWidthSize(320),
+                borderRadius: 25,
+                marginTop: 20,
+              }}
+            />
+          </TouchableOpacity>
         </DefaultCard>
       </DefaultScreen>
     </View>
