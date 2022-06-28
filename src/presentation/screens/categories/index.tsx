@@ -5,7 +5,7 @@ import CardMenu from "./components/card-menu"
 const Categories = () => {
   return (
     <DefaultScreen namePage="Categories" showHeader>
-      <CardMenu title="Categories" />
+      <CardMenu />
     </DefaultScreen>
   )
 }

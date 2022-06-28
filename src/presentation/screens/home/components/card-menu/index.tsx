@@ -73,7 +73,7 @@ const CardMenu = ({ title, marginBottom }: CardMenuProps) => {
   ]
 
   function renderItem(item: any) {
-    return <CardItem item={item} />
+    return <CardItem item={item} title={title} />
   }
 
   const navigation = useNavigation()
@@ -86,7 +86,9 @@ const CardMenu = ({ title, marginBottom }: CardMenuProps) => {
           <TouchableOpacity
             onPress={() =>
               navigation.navigate(
-                title === "Categories" ? Routes.Categories : Routes.PopularDeals
+                title === Routes.Categories
+                  ? Routes.Categories
+                  : Routes.PopularDeals
               )
             }
           >

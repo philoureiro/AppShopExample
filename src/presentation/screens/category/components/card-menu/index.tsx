@@ -67,11 +67,13 @@ const CardMenu = ({ marginBottom }: CardMenuProps) => {
     return <CardItem item={item} />
   }
 
+  const navigation = useNavigation()
+
   return (
     <Container marginBottom={marginBottom}>
       <FlatList
         style={{ flexDirection: "column" }}
-        numColumns={3}
+        numColumns={2}
         data={DATA}
         renderItem={(item: any) => renderItem(item)}
         keyExtractor={(item: any) => item.id}

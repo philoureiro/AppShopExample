@@ -10,7 +10,9 @@ const CardItem = ({ item }: CardItemProps) => {
   const navigation = useNavigation()
   return (
     <Container>
-      <BoxImage onPress={() => navigation.navigate(Routes.Category)}>
+      <BoxImage
+        onPress={() => navigation.navigate(Routes.Category, { item: item })}
+      >
         <Image
           //${item.item.url}
           source={{

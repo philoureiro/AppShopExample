@@ -1,13 +1,24 @@
+import { useNavigation } from "@react-navigation/native"
 import React from "react"
+import Routes from "../../../../../main/navigation/routes-types"
 import { Container, LabelBox, Label, BoxImage, Image } from "./styles"
 
 interface CardItemProps {
   item: any
+  title: string
 }
-const CardItem = ({ item }: CardItemProps) => {
+const CardItem = ({ item, title }: CardItemProps) => {
+  const navigation = useNavigation()
   return (
     <Container>
-      <BoxImage>
+      <BoxImage
+        onPress={() =>
+          navigation.navigate(
+            title === Routes.Categories ? Routes.Category : Routes.Product,
+            { item: item }
+          )
+        }
+      >
         <Image
           //${item.item.url}
           source={{

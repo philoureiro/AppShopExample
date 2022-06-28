@@ -14,7 +14,7 @@ export type StackParamList = {
   recoveryPassword: { email: string }
   resetPassword: { email: string; code: string }
   feedbackPage: { message: string; goTo: Routes }
-  courses: undefined
+  category: { item: any }
 }
 
 type Props = NativeStackScreenProps<StackParamList>
