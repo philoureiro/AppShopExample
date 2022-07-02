@@ -70,7 +70,15 @@ const CardMenu = ({ marginBottom }: CardMenuProps) => {
   return (
     <Container marginBottom={marginBottom}>
       <FlatList
-        style={{ flexDirection: "column" }}
+        style={{
+          flexDirection: "column",
+        }}
+        columnWrapperStyle={{
+          flex: 1,
+          paddingLeft: 10,
+          justifyContent: "space-evenly",
+        }}
+        showsVerticalScrollIndicator={false}
         numColumns={3}
         data={DATA}
         renderItem={(item: any) => renderItem(item)}

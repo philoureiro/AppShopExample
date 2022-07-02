@@ -1,5 +1,6 @@
 import { useNavigation } from "@react-navigation/native"
 import React from "react"
+import { getWidthSize } from "../../../../../utils/responsivity"
 
 import CardItem from "../card-item"
 import { Container, FlatList } from "./styles"
@@ -59,6 +60,26 @@ const CardMenu = ({ marginBottom }: CardMenuProps) => {
       name: "Kiwi",
       url: "kiwi.png",
     },
+    {
+      id: "11",
+      name: "Kiwi",
+      url: "kiwi.png",
+    },
+    {
+      id: "12",
+      name: "Kiwi",
+      url: "kiwi.png",
+    },
+    {
+      id: "13",
+      name: "Kiwi",
+      url: "kiwi.png",
+    },
+    {
+      id: "14",
+      name: "Kiwi",
+      url: "kiwi.png",
+    },
   ]
 
   function renderItem(item: any) {
@@ -70,7 +91,15 @@ const CardMenu = ({ marginBottom }: CardMenuProps) => {
   return (
     <Container marginBottom={marginBottom}>
       <FlatList
-        style={{ flexDirection: "column" }}
+        style={{
+          flexDirection: "column",
+        }}
+        columnWrapperStyle={{
+          flex: 1,
+          justifyContent: "space-evenly",
+          paddingLeft: 10,
+        }}
+        showsVerticalScrollIndicator={false}
         numColumns={3}
         data={DATA}
         renderItem={(item: any) => renderItem(item)}
