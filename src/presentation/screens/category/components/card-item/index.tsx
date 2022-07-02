@@ -1,13 +1,38 @@
+import { Entypo } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
-import React from "react"
+import React, { useState } from "react"
+import { TouchableOpacity } from "react-native"
 import Routes from "../../../../../main/navigation/routes-types"
-import { Container, LabelBox, Label, BoxImage, Image } from "./styles"
+import {
+  Container,
+  LabelBox,
+  BoxImage,
+  Image,
+  BoxInfo,
+  ProductName,
+  Discount,
+  Price,
+  CartController,
+  AmountText,
+} from "./styles"
 
 interface CardItemProps {
   item: any
 }
 const CardItem = ({ item }: CardItemProps) => {
   const navigation = useNavigation()
+  const [isSelected, setIsSelected] = useState(false)
+  const [numberOfItems, setNumberOfItems] = useState(0)
+
+  function handleClickOnPlus() {
+    isSelected
+      ? setNumberOfItems(numberOfItems + 1)
+      : setIsSelected(!isSelected)
+  }
+  function handleClickOnMinus() {
+    setNumberOfItems(numberOfItems > 0 ? numberOfItems - 1 : 0)
+    setIsSelected(numberOfItems === 0 ? !isSelected : true)
+  }
   return (
     <Container>
       <BoxImage
@@ -20,9 +45,27 @@ const CardItem = ({ item }: CardItemProps) => {
           }}
         />
       </BoxImage>
+
       <LabelBox>
-        <Label>{item.item.name}</Label>
+        <ProductName>{item.item.name}</ProductName>
+        <Discount>{item.item.name}</Discount>
+        <Price>{item.item.name}</Price>
       </LabelBox>
+
+      <CartController selected={isSelected}>
+        <TouchableOpacity onPress={handleClickOnPlus}>
+          <Entypo name="plus" size={25} color="white" />
+        </TouchableOpacity>
+
+        {isSelected && (
+          <>
+            <AmountText>{numberOfItems}</AmountText>
+            <TouchableOpacity onPress={handleClickOnMinus}>
+              <Entypo name="minus" size={25} color="white" />
+            </TouchableOpacity>
+          </>
+        )}
+      </CartController>
     </Container>
   )
 }

@@ -64,7 +64,7 @@ const CardMenu = ({ marginBottom }: CardMenuProps) => {
   ]
 
   function renderItem(item: any) {
-    return <CardItem item={item} />
+    return <CardItem item={item} key={item.id} />
   }
 
   const navigation = useNavigation()
@@ -72,6 +72,7 @@ const CardMenu = ({ marginBottom }: CardMenuProps) => {
   return (
     <Container marginBottom={marginBottom}>
       <FlatList
+        showsVerticalScrollIndicator={false}
         style={{ flexDirection: "column" }}
         numColumns={2}
         data={DATA}

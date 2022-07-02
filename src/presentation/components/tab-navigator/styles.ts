@@ -24,16 +24,16 @@ export const Label = styled.Text<LabelProps>`
 `
 
 export const CircleButton = styled.TouchableOpacity`
-  width: 65;
-  height: 65;
-  border-radius: 35;
+  width: 65px;
+  height: 65px;
+  border-radius: 35px;
   align-items: center;
   justify-content: center;
   background-color: ${theme.colors.primaryGreen};
   box-shadow: gray 0px 3px 8px;
 
   elevation: 6;
-  bottom: 24;
+  bottom: 24px;
 `
 
 export const InternalCircle = styled.View`
@@ -49,27 +49,27 @@ export const IconAndFlagBox = styled.View`
   position: absolute;
   justify-content: center;
   align-items: center;
-  bottom: ${getWidthSize(30)};
+  bottom: ${getWidthSize(30)}px;
 `
 
 export const Tag = styled.Image`
-  height: 50;
-  width: 55;
+  height: 50px;
+  width: 55px;
 `
 
 export const Text = styled.Text`
   position: absolute;
   color: white;
   font-weight: bold;
-  top: ${getWidthSize(10)};
+  top: ${getWidthSize(10)}px;
 `
 
 export const TabBar = styled.TouchableOpacity`
-  height: 50;
-  width: 55;
+  height: 50px;
+  width: 55px;
   flex: 1;
   align-items: center;
   justify-content: center;
   padding: 3px;
-  margin-left: ${getWidthSize(15)};
+  margin-left: ${getWidthSize(15)}px;
 `

@@ -73,7 +73,7 @@ const CardMenu = ({ title, marginBottom }: CardMenuProps) => {
   ]
 
   function renderItem(item: any) {
-    return <CardItem item={item} title={title} />
+    return <CardItem item={item} title={title} key={item.id} />
   }
 
   const navigation = useNavigation()

@@ -1,40 +1,92 @@
 import styled from "styled-components/native"
+import { getWidthSize } from "../../../../../utils/responsivity"
 import { theme } from "../../../../styles/theme"
 
 export const Container = styled.View`
-  max-height: 90%;
+  height: ${getWidthSize(250)};
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   padding: 5px;
-  width: 100px;
-  margin-right: 10px;
+  width: 50%;
+  border-color: gray;
+  border-width: 0.2px;
+  border-top-width: 0px;
+  border-style: solid;
+
+  border-color: ${theme.colors.gray};
 `
 export const LabelBox = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  left: 0px;
+  max-width: 80%;
+  margin-left: 5px;
 `
-export const Label = styled.Text`
-  font-size: 16px;
+
+export const ProductName = styled.Text`
+  font-size: 20px;
   font-family: ${theme.font.family};
   text-align: center;
+  font-weight: bold;
+`
+
+export const Discount = styled.Text`
+  font-size: 12px;
+  font-family: ${theme.font.family};
+  text-align: center;
+  color: ${theme.colors.gray};
+  margin-top: 5px;
+`
+
+export const Price = styled.Text`
+  font-size: 16px;
+  color: ${theme.colors.primaryGreen};
+  font-weight: bold;
+  font-family: ${theme.font.family};
+  text-align: center;
+  margin-top: 5px;
 `
 
 export const BoxImage = styled.TouchableOpacity`
-  box-shadow: gray 0px 0px 0px;
-  background-color: ${theme.colors.lightGreen};
   justify-content: center;
   padding: 5px;
   align-items: center;
-  width: 90px;
-  height: 90px;
+  width: 100%;
+  height: 65%;
   border-radius: 20px;
   margin-bottom: 5px;
-  margin-top: 10px;
 `
 
 export const Image = styled.Image`
-  height: 70px;
-  width: 70px;
+  height: 100%;
+  width: 100%;
   border-radius: 20px;
+`
+
+export const BoxInfo = styled.View`
+  background-color: purple;
+`
+
+interface ICartController {
+  selected: boolean
+}
+export const CartController = styled.View<ICartController>`
+  background-color: ${theme.colors.primaryGreen};
+  position: absolute;
+  height: ${(props) => (props.selected ? "40%" : "13%")};
+  width: 22%;
+  border-top-left-radius: 25px;
+  bottom: 0px;
+  right: 0px;
+  justify-content: space-evenly;
+  align-items: center;
+`
+
+export const AmountText = styled.Text`
+  font-size: 20px;
+  color: ${theme.colors.white};
+  font-weight: bold;
+  font-family: ${theme.font.family};
+  text-align: center;
+  margin-top: 5px;
 `
