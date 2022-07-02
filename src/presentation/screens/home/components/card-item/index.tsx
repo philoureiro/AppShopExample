@@ -1,10 +1,12 @@
 import { useNavigation } from "@react-navigation/native"
 import React from "react"
+import { Category } from "../../../../../interfaces/models/Category"
 import Routes from "../../../../../main/navigation/routes-types"
+import { returnImageCategory } from "../../../../../utils/returnCategoryImage"
 import { Container, LabelBox, Label, BoxImage, Image } from "./styles"
 
 interface CardItemProps {
-  item: any
+  item: Category
   title: string
 }
 const CardItem = ({ item, title }: CardItemProps) => {
@@ -19,15 +21,10 @@ const CardItem = ({ item, title }: CardItemProps) => {
           )
         }
       >
-        <Image
-          //${item.item.url}
-          source={{
-            uri: "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg",
-          }}
-        />
+        <Image source={returnImageCategory(item)} />
       </BoxImage>
       <LabelBox>
-        <Label>{item.item.name}</Label>
+        <Label>{item}</Label>
       </LabelBox>
     </Container>
   )

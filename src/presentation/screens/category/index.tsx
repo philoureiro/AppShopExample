@@ -7,7 +7,7 @@ const Category = () => {
   const route = useRoute()
   const { item } = route.params
   return (
-    <DefaultScreen namePage={item?.item.name} showHeader>
+    <DefaultScreen namePage={item} showHeader>
       <CardMenu />
     </DefaultScreen>
   )

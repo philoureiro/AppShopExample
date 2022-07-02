@@ -1,6 +1,10 @@
 import { useNavigation } from "@react-navigation/native"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { TouchableOpacity } from "react-native"
+
+import { IGetCategories } from "../../../../../domain/usecases/interfaces/category/getCategories"
+
+import { Category } from "../../../../../interfaces/models/Category"
 import Routes from "../../../../../main/navigation/routes-types"
 
 import CardItem from "../card-item"
@@ -17,66 +21,24 @@ import {
 interface CardMenuProps {
   title: string
   marginBottom?: number
+  getCategories: IGetCategories
 }
-const CardMenu = ({ title, marginBottom }: CardMenuProps) => {
-  const DATA = [
-    {
-      id: "1",
-      name: "Apple",
-      url: "apple.png",
-    },
-    {
-      id: "2",
-      name: "Avocado",
-      url: "avocado.png",
-    },
-    {
-      id: "3",
-      name: "Banana",
-      url: "banana.png",
-    },
-    {
-      id: "4",
-      name: "Blackberry",
-      url: "blackberry.png",
-    },
-    {
-      id: "5",
-      name: "Cherry",
-      url: "cherry.png",
-    },
-    {
-      id: "6",
-      name: "Dates",
-      url: "dates.png",
-    },
-    {
-      id: "7",
-      name: "Grape",
-      url: "grape.png",
-    },
-    {
-      id: "8",
-      name: "Green Lemon",
-      url: "green-lemon.png",
-    },
-    {
-      id: "9",
-      name: "Guava",
-      url: "guava.png",
-    },
-    {
-      id: "10",
-      name: "Kiwi",
-      url: "kiwi.png",
-    },
-  ]
+const CardMenu = ({ title, marginBottom, getCategories }: CardMenuProps) => {
+  const [data, setData] = useState<Category[]>()
 
-  function renderItem(item: any) {
-    return <CardItem item={item} title={title} key={item.id} />
+  function renderItem(item: Category) {
+    return <CardItem item={item} title={title} />
   }
 
   const navigation = useNavigation()
+
+  const makeRequest = async () => {
+    setData(await getCategories.get())
+  }
+
+  useEffect(() => {
+    makeRequest()
+  }, [getCategories])
 
   return (
     <Container marginBottom={marginBottom}>
@@ -98,9 +60,9 @@ const CardMenu = ({ title, marginBottom }: CardMenuProps) => {
         <Row />
       </CardHeader>
       <FlatList
-        data={DATA}
-        renderItem={(item: any) => renderItem(item)}
-        keyExtractor={(item: any) => item.id}
+        data={data}
+        renderItem={({ item }) => renderItem(item)}
+        keyExtractor={(item: Category) => item}
         horizontal
       />
     </Container>

@@ -6,6 +6,7 @@ import CardMenu from "./components/card-menu"
 import { ScrollView } from "native-base"
 import { useNavigation } from "@react-navigation/native"
 import Routes from "../../../main/navigation/routes-types"
+import { makeRemoteGetCategories } from "../../../application/factories/usecases/categories/remote-getCategories-factory copy"
 
 const Dashboard = () => {
   useEffect(() => {
@@ -15,11 +16,15 @@ const Dashboard = () => {
   })
 
   const navigation = useNavigation()
+
   return (
     <Container>
       <SearchBar />
       <DefaultScreen namePage="Home" scroollable>
-        <CardMenu title="Categories" />
+        <CardMenu
+          title="Categories"
+          getCategories={makeRemoteGetCategories()}
+        />
         <ScrollView
           horizontal
           centerContent
