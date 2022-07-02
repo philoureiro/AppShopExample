@@ -1,15 +1,17 @@
 export type HttpRequest = {
-  url: string;
-  method: HttpMethod;
-  body?: any;
-  headers?: any;
-};
-
-export interface HttpClient<R = any> {
-  request: (data: HttpRequest) => Promise<HttpResponse<R>>;
+  url: string
+  method: HttpMethod
+  body?: any
+  headers?: any
+  params?: any
+  responseType?: ResponseType | undefined
 }
 
-export type HttpMethod = 'post' | 'get' | 'put' | 'delete';
+export interface HttpClient<R = any> {
+  request: (data: HttpRequest) => Promise<HttpResponse<R>>
+}
+
+export type HttpMethod = "post" | "get" | "put" | "delete"
 
 export enum HttpStatusCode {
   created = 201,
@@ -23,6 +25,6 @@ export enum HttpStatusCode {
 }
 
 export type HttpResponse<T = any> = {
-  statusCode: HttpStatusCode;
-  body: T | any;
-};
+  statusCode: HttpStatusCode
+  body: T | any
+}

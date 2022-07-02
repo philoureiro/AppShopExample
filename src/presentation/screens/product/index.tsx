@@ -6,11 +6,14 @@ interface IProduct {}
 const Product = () => {
   const route = useRoute()
   const { item } = route.params
-  console.log("iteeeeem", item)
+  console.log("item", item)
 
   return (
     item && (
-      <DefaultScreen namePage={item?.item.name} showHeader></DefaultScreen>
+      <DefaultScreen
+        namePage={item.title.split(" ").slice(0, 2).join(" ")}
+        showHeader
+      ></DefaultScreen>
     )
   )
 }

@@ -6,7 +6,7 @@ import CardMenu from "./components/card-menu"
 import { ScrollView } from "native-base"
 import { useNavigation } from "@react-navigation/native"
 import Routes from "../../../main/navigation/routes-types"
-import { makeRemoteGetCategories } from "../../../application/factories/usecases/categories/remote-getCategories-factory copy"
+import { makeRemoteGetCategories } from "../../../application/factories/usecases/categories/remote-getCategories-factory"
 
 const Dashboard = () => {
   useEffect(() => {

@@ -2,13 +2,13 @@ import { Entypo } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
 import React, { useState } from "react"
 import { TouchableOpacity } from "react-native"
+import { Product } from "../../../../../interfaces/models/Product"
 import Routes from "../../../../../main/navigation/routes-types"
 import {
   Container,
   LabelBox,
   BoxImage,
   Image,
-  BoxInfo,
   ProductName,
   Discount,
   Price,
@@ -17,7 +17,7 @@ import {
 } from "./styles"
 
 interface CardItemProps {
-  item: any
+  item: Product
 }
 const CardItem = ({ item }: CardItemProps) => {
   const navigation = useNavigation()
@@ -39,17 +39,21 @@ const CardItem = ({ item }: CardItemProps) => {
         onPress={() => navigation.navigate(Routes.Product, { item: item })}
       >
         <Image
-          //${item.item.url}
+          resizeMode="stretch"
           source={{
-            uri: "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg",
+            uri: item.image,
           }}
         />
       </BoxImage>
 
       <LabelBox>
-        <ProductName>{item.item.name}</ProductName>
-        <Discount>{item.item.name}</Discount>
-        <Price>{item.item.name}</Price>
+        <ProductName>
+          {item.title.length < 70
+            ? `${item.title}`
+            : `${item.title.substring(0, 60)}...`}
+        </ProductName>
+        <Discount>{(item.price * 0.2).toFixed(2)}</Discount>
+        <Price>{item.price}</Price>
       </LabelBox>
 
       <CartController selected={isSelected}>

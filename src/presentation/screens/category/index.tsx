@@ -1,5 +1,6 @@
 import { useRoute } from "@react-navigation/native"
 import React from "react"
+import { makeRemoteGetProductsByCategory } from "../../../application/factories/usecases/categories/remote-getProductsByCategory-factory"
 import { DefaultScreen } from "../../components"
 import CardMenu from "./components/card-menu"
 
@@ -8,7 +9,10 @@ const Category = () => {
   const { item } = route.params
   return (
     <DefaultScreen namePage={item} showHeader>
-      <CardMenu />
+      <CardMenu
+        getProductsByCategory={makeRemoteGetProductsByCategory(item)}
+        category={item}
+      />
     </DefaultScreen>
   )
 }

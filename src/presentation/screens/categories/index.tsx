@@ -1,5 +1,5 @@
 import React from "react"
-import { makeRemoteGetCategories } from "../../../application/factories/usecases/categories/remote-getCategories-factory copy"
+import { makeRemoteGetCategories } from "../../../application/factories/usecases/categories/remote-getCategories-factory"
 import { DefaultScreen } from "../../components"
 import CardMenu from "./components/card-menu"
 

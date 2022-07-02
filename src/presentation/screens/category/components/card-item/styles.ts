@@ -3,7 +3,7 @@ import { getWidthSize } from "../../../../../utils/responsivity"
 import { theme } from "../../../../styles/theme"
 
 export const Container = styled.View`
-  height: ${getWidthSize(250)};
+  height: ${getWidthSize(320)};
   justify-content: flex-start;
   align-items: flex-start;
   padding: 5px;
@@ -24,14 +24,14 @@ export const LabelBox = styled.View`
 `
 
 export const ProductName = styled.Text`
-  font-size: 20px;
+  font-size: 16px;
   font-family: ${theme.font.family};
-  text-align: center;
+  text-align: left;
   font-weight: bold;
 `
 
 export const Discount = styled.Text`
-  font-size: 12px;
+  font-size: 16px;
   font-family: ${theme.font.family};
   text-align: center;
   color: ${theme.colors.gray};
@@ -39,7 +39,7 @@ export const Discount = styled.Text`
 `
 
 export const Price = styled.Text`
-  font-size: 16px;
+  font-size: 20px;
   color: ${theme.colors.primaryGreen};
   font-weight: bold;
   font-family: ${theme.font.family};
@@ -52,7 +52,7 @@ export const BoxImage = styled.TouchableOpacity`
   padding: 5px;
   align-items: center;
   width: 100%;
-  height: 65%;
+  height: 50%;
   border-radius: 20px;
   margin-bottom: 5px;
 `

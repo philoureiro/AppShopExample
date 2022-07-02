@@ -1,6 +1,8 @@
 import { useNavigation } from "@react-navigation/native"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { TouchableOpacity, View } from "react-native"
+import { IGetProductsByCategory } from "../../../../../domain/usecases/interfaces/category/getProductsByCategory"
+import { Product } from "../../../../../interfaces/models/Product"
 import Routes from "../../../../../main/navigation/routes-types"
 
 import CardItem from "../card-item"
@@ -8,66 +10,30 @@ import { Container, FlatList } from "./styles"
 
 interface CardMenuProps {
   marginBottom?: number
+  getProductsByCategory: IGetProductsByCategory
+  category: string
 }
-const CardMenu = ({ marginBottom }: CardMenuProps) => {
-  const DATA = [
-    {
-      id: "1",
-      name: "Apple",
-      url: "apple.png",
-    },
-    {
-      id: "2",
-      name: "Avocado",
-      url: "avocado.png",
-    },
-    {
-      id: "3",
-      name: "Banana",
-      url: "banana.png",
-    },
-    {
-      id: "4",
-      name: "Blackberry",
-      url: "blackberry.png",
-    },
-    {
-      id: "5",
-      name: "Cherry",
-      url: "cherry.png",
-    },
-    {
-      id: "6",
-      name: "Dates",
-      url: "dates.png",
-    },
-    {
-      id: "7",
-      name: "Grape",
-      url: "grape.png",
-    },
-    {
-      id: "8",
-      name: "Green Lemon",
-      url: "green-lemon.png",
-    },
-    {
-      id: "9",
-      name: "Guava",
-      url: "guava.png",
-    },
-    {
-      id: "10",
-      name: "Kiwi",
-      url: "kiwi.png",
-    },
-  ]
+const CardMenu = ({
+  marginBottom,
+  getProductsByCategory,
+  category,
+}: CardMenuProps) => {
+  const [data, setData] = useState<Product[]>()
+
+  console.log("category", category)
+  const makeRequest = async () => {
+    setData(await getProductsByCategory.get())
+  }
+
+  useEffect(() => {
+    makeRequest()
+  }, [getProductsByCategory])
 
   function renderItem(item: any) {
     return <CardItem item={item} key={item.id} />
   }
 
-  const navigation = useNavigation()
+  console.log("producst =>", data)
 
   return (
     <Container marginBottom={marginBottom}>
@@ -75,8 +41,8 @@ const CardMenu = ({ marginBottom }: CardMenuProps) => {
         showsVerticalScrollIndicator={false}
         style={{ flexDirection: "column" }}
         numColumns={2}
-        data={DATA}
-        renderItem={(item: any) => renderItem(item)}
+        data={data}
+        renderItem={({ item }) => renderItem(item)}
         keyExtractor={(item: any) => item.id}
       />
     </Container>
