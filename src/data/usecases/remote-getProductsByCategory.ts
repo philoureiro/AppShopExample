@@ -10,11 +10,10 @@ export class RemoteGetProductsByCategory implements IGetProductsByCategory {
     private readonly httpClient: HttpClient<Product[]>
   ) {}
 
-  get = async (category: string) => {
+  get = async () => {
     const httpResponse = await this.httpClient.request({
       url: this.url,
       method: "get",
-      params: category,
     })
 
     switch (httpResponse.statusCode) {

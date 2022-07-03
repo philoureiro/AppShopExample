@@ -1,12 +1,12 @@
 import styled from "styled-components/native"
-import { theme } from "../../../../styles/theme"
+import { theme } from "../../../../../styles/theme"
 
 interface ContainerProps {
   marginBottom?: number
 }
 export const Container = styled.View<ContainerProps>`
   justify-content: center;
-  height: 100%;
+  height: 225px;
   background-color: white;
   border-radius: 25px;
   box-shadow: gray 0px 0px 1px;

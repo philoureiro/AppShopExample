@@ -5,13 +5,13 @@ import { DefaultScreen } from "../../components"
 interface IProduct {}
 const Product = () => {
   const route = useRoute()
-  const { item } = route.params
-  console.log("item", item)
+  const { product } = route.params
+  console.log("item", product)
 
   return (
-    item && (
+    product && (
       <DefaultScreen
-        namePage={item.title.split(" ").slice(0, 2).join(" ")}
+        namePage={product.title.split(" ").slice(0, 2).join(" ")}
         showHeader
       ></DefaultScreen>
     )

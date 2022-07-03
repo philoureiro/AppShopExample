@@ -33,10 +33,11 @@ const CardItem = ({ item }: CardItemProps) => {
     setNumberOfItems(numberOfItems > 0 ? numberOfItems - 1 : 0)
     setIsSelected(numberOfItems === 0 ? !isSelected : true)
   }
+  console.log("dut", item)
   return (
     <Container>
       <BoxImage
-        onPress={() => navigation.navigate(Routes.Product, { item: item })}
+        onPress={() => navigation.navigate(Routes.Product, { product: item })}
       >
         <Image
           resizeMode="stretch"

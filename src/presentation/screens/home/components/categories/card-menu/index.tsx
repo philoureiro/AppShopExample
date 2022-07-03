@@ -1,12 +1,10 @@
 import { useNavigation } from "@react-navigation/native"
-import { View } from "native-base"
+
 import React, { useEffect, useState } from "react"
 import { ActivityIndicator, TouchableOpacity } from "react-native"
-
-import { IGetCategories } from "../../../../../domain/usecases/interfaces/category/getCategories"
-
-import { Category } from "../../../../../interfaces/models/Category"
-import Routes from "../../../../../main/navigation/routes-types"
+import { IGetCategories } from "../../../../../../domain/usecases/interfaces/category/getCategories"
+import { Category } from "../../../../../../interfaces/models/Category"
+import Routes from "../../../../../../main/navigation/routes-types"
 
 import CardItem from "../card-item"
 import {
@@ -22,27 +20,27 @@ import {
 interface CardMenuProps {
   title: string
   marginBottom?: number
-  getCategories: IGetCategories
+  getData: IGetCategories
 }
-const CardMenu = ({ title, marginBottom, getCategories }: CardMenuProps) => {
+const CardMenu = ({ title, marginBottom, getData }: CardMenuProps) => {
   const [data, setData] = useState<Category[]>()
   const [loading, setLoading] = useState(false)
 
   function renderItem(item: Category) {
-    return <CardItem item={item} title={title} />
+    return <CardItem item={item} />
   }
 
   const navigation = useNavigation()
 
   const makeRequest = async () => {
     setLoading(true)
-    setData(await getCategories.get())
+    setData(await getData.get())
     setLoading(false)
   }
 
   useEffect(() => {
     makeRequest()
-  }, [getCategories])
+  }, [getData])
 
   return (
     <Container marginBottom={marginBottom}>
@@ -55,11 +53,7 @@ const CardMenu = ({ title, marginBottom, getCategories }: CardMenuProps) => {
               <Label>{title}</Label>
               <TouchableOpacity
                 onPress={() =>
-                  navigation.navigate(
-                    title === Routes.Categories
-                      ? Routes.Categories
-                      : Routes.PopularDeals
-                  )
+                  navigation.navigate(Routes.Categories, { categories: data })
                 }
               >
                 <SeeAllLabel>See All</SeeAllLabel>

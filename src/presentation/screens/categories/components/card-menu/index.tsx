@@ -1,7 +1,5 @@
-import { useNavigation } from "@react-navigation/native"
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { ActivityIndicator } from "react-native"
-import { IGetCategories } from "../../../../../domain/usecases/interfaces/category/getCategories"
 import { Category } from "../../../../../interfaces/models/Category"
 import { getWidthSize } from "../../../../../utils/responsivity"
 
@@ -10,31 +8,16 @@ import { Container, FlatList } from "./styles"
 
 interface CardMenuProps {
   marginBottom?: number
-  getCategories: IGetCategories
+  categories: Category[]
 }
-const CardMenu = ({ marginBottom, getCategories }: CardMenuProps) => {
-  const [data, setData] = useState<Category[]>()
-  const [loading, setLoading] = useState(false)
-
-  const makeRequest = async () => {
-    setLoading(true)
-    setData(await getCategories.get())
-    setLoading(false)
-  }
-
-  useEffect(() => {
-    makeRequest()
-  }, [getCategories])
-
+const CardMenu = ({ marginBottom, categories }: CardMenuProps) => {
   function renderItem(item: any) {
     return <CardItem item={item} key={item.id} />
   }
 
   return (
     <Container marginBottom={marginBottom}>
-      {loading ? (
-        <ActivityIndicator size="large" />
-      ) : (
+      {categories ? (
         <FlatList
           style={{
             flexDirection: "column",
@@ -46,10 +29,12 @@ const CardMenu = ({ marginBottom, getCategories }: CardMenuProps) => {
           }}
           showsVerticalScrollIndicator={false}
           numColumns={3}
-          data={data}
+          data={categories}
           renderItem={({ item }) => renderItem(item)}
           keyExtractor={(item: any) => item.id}
         />
+      ) : (
+        <ActivityIndicator size="large" />
       )}
     </Container>
   )
