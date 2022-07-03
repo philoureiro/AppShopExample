@@ -1,12 +1,145 @@
-import { View, Text } from "react-native"
-import React from "react"
+import { useNavigation } from "@react-navigation/native"
+import React, { useState } from "react"
+import { useForm } from "react-hook-form"
+import { Text, TouchableOpacity } from "react-native"
+import { IAuthentication } from "../../../domain/usecases/interfaces/category/authentication"
+import LottieView from "lottie-react-native"
+import {
+  ClickableText,
+  ClickableTextButton,
+  ClickableTextSignUpButton,
+  Container,
+  ContainerButtonSignUp,
+  Image,
+  LoginContainer,
+  LogoContainer,
+} from "./styles"
 
-const SignIn = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>SignIn</Text>
-    </View>
-  )
+import { useAuth } from "../../../application/contexts/Auth/Auth"
+import { AllRoutes } from "../../../application/navigation/routes-types"
+import { DefaultNavigationProps } from "../../../application/navigation/types"
+
+import {
+  isValidEmail,
+  isStrongPassword,
+} from "../../../domain/shared/reggex-patterns"
+
+import { Button, TextInput } from "../../components"
+import { getWidthSize } from "../../../utils/responsivity"
+type Props = {
+  authetication: IAuthentication
 }
 
-export default SignIn
+export default function SignIn({ authetication }: Props) {
+  const [loading, setLoading] = useState(false)
+  const context = useAuth()
+  const navigation = useNavigation<DefaultNavigationProps>()
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    shouldFocusError: true,
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  })
+
+  const onSubmit = async (data: any) => {
+    try {
+      setLoading(true)
+      const { accessToken, email, name, refreshToken } =
+        await authetication.auth({ ...data })
+      context.signIn({ accessToken, email, name, refreshToken })
+    } catch (err) {
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleForgotPassword = () => {
+    // navigation.navigate(AllRoutes.AtDiscount)
+  }
+
+  const handleSignUp = () => {
+    navigation.navigate(AllRoutes.SignUp)
+  }
+
+  return (
+    <Container>
+      <LoginContainer>
+        <LottieView
+          source={require("../../assets/animations/login.json")}
+          autoPlay
+          loop={true}
+          autoSize
+          style={{
+            width: "100%",
+            justifyContent: "center",
+            marginBottom: getWidthSize(-40),
+          }}
+        />
+
+        <TextInput
+          control={control}
+          errors={errors}
+          name="email"
+          label="E-mail"
+          placeholder="Digite seu e-email"
+          keyboardType="email-address"
+          iconName="email-plus"
+          rules={{
+            required: { message: "O Email é obrigatório", value: true },
+            maxLength: 255,
+            pattern: {
+              message: "O Email digitado é inválido.",
+              value: isValidEmail,
+            },
+          }}
+        />
+
+        <TextInput
+          control={control}
+          errors={errors}
+          label="Password"
+          name="password"
+          placeholder="Digite a sua senha."
+          iconName="account-lock"
+          secureTextEntry
+          rules={{
+            required: { message: "A Senha é obrigatória.", value: true },
+            pattern: {
+              message:
+                "A senha deve conter no minímo 8 dígitos, um caractere especial e uma letra maiúscula",
+              value: isStrongPassword,
+            },
+          }}
+        />
+
+        <ClickableTextButton>
+          <TouchableOpacity onPress={handleForgotPassword}>
+            <ClickableText>Forgot Password?</ClickableText>
+          </TouchableOpacity>
+        </ClickableTextButton>
+
+        <Button
+          title="Log In"
+          onPress={handleSubmit(onSubmit)}
+          loading={loading}
+          marginTop={getWidthSize(30)}
+        />
+
+        <ContainerButtonSignUp>
+          <Text>Not registered yet?</Text>
+          <ClickableTextSignUpButton>
+            <TouchableOpacity onPress={handleSignUp}>
+              <ClickableText>Sign Up</ClickableText>
+            </TouchableOpacity>
+          </ClickableTextSignUpButton>
+        </ContainerButtonSignUp>
+      </LoginContainer>
+    </Container>
+  )
+}

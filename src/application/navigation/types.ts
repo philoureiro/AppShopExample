@@ -1,20 +1,22 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import Routes from "./routes-types"
+import { Category } from "../../interfaces/models/Category"
+import { Product } from "../../interfaces/models/Product"
 
 export type StackParamList = {
-  bottomNavigation: undefined
-  shop: undefined
-  profile: undefined
+  atDiscount: undefined
+  cart: undefined
+  categories: undefined
+  category: { category: Category }
   home: undefined
-  updateUser: undefined
-  updateUserAddress: undefined
-  authentication: undefined
+  more: undefined
+  offer: undefined
+  order: undefined
+  orderDetails: undefined
+  popularDeals: { email: string }
+  product: { product: Product }
+  profile: undefined
+  signIn: undefined
   signUp: undefined
-  forgotPassword: undefined
-  recoveryPassword: { email: string }
-  resetPassword: { email: string; code: string }
-  feedbackPage: { message: string; goTo: Routes }
-  category: { item: any }
 }
 
 type Props = NativeStackScreenProps<StackParamList>

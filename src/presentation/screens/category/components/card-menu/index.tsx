@@ -22,7 +22,6 @@ const CardMenu = ({ marginBottom, getProductsByCategory }: CardMenuProps) => {
   useEffect(() => {
     makeRequest()
   }, [getProductsByCategory])
-
   function renderItem(item: any) {
     return <CardItem item={item} key={item.id} />
   }

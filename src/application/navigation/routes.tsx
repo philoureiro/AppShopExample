@@ -9,6 +9,8 @@ import {
   Category,
   PopularDeals,
   Product,
+  SignIn,
+  SignUp,
 } from "../../presentation/screens"
 
 const Stack = createNativeStackNavigator()
@@ -28,6 +30,8 @@ const Routes = () => {
         <Stack.Screen name="AtDiscount" component={AtDiscount} />
         <Stack.Screen name="Category" component={Category} />
         <Stack.Screen name="Product" component={Product} />
+        <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="SignUp" component={SignUp} />
       </Stack.Navigator>
     </NavigationContainer>
   )

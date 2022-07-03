@@ -7,7 +7,7 @@ import {
   MaterialCommunityIcons,
   Entypo,
 } from "@expo/vector-icons"
-import { Cart, Home, More, Offer, Order } from "../../screens"
+import { Cart, Home, More, Offer, Order, SignIn } from "../../screens"
 import { theme } from "../../styles/theme"
 import {
   CircleButton,
@@ -20,7 +20,7 @@ import {
   TabBar,
 } from "./styles"
 
-import AllRoutes from "../../../application/navigation/routes-types"
+import { AllRoutes } from "../../../application/navigation/routes-types"
 
 const ThemeScreen = () => {
   function handleNavigate(navigate: any, routeName: any) {
@@ -132,7 +132,7 @@ const ThemeScreen = () => {
         />
         <CurvedBottomBar.Screen
           name="More"
-          children={() => <More />}
+          children={() => <SignIn />}
           position="RIGHT"
         />
       </CurvedBottomBar.Navigator>

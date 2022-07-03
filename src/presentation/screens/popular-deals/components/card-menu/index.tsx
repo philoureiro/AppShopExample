@@ -15,7 +15,7 @@ const CardMenu = ({ marginBottom, products }: CardMenuProps) => {
   function renderItem(item: Product) {
     return <CardItem item={item} key={item.id} />
   }
-  console.log("prod", products)
+
   return (
     <Container marginBottom={marginBottom}>
       {products ? (

@@ -34,7 +34,7 @@ const CardItem = ({ item }: CardItemProps) => {
     setNumberOfItems(numberOfItems > 0 ? numberOfItems - 1 : 0)
     setIsSelected(numberOfItems === 0 ? !isSelected : true)
   }
-  console.log("dut", item)
+
   return (
     <Container>
       <BoxImage

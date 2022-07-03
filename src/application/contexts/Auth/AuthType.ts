@@ -1,19 +1,19 @@
-import {AccountModel} from '../../../domain/models';
+import { AccountModel } from "../../../interfaces/models/Account"
 
 export type UserInfo = {
-  name: string;
-  email: string;
-};
+  name: string
+  email: string
+}
 
 export interface AuthContextData {
-  auth?: AccountModel;
-  signIn: (authData: AccountModel) => void;
-  signOut: () => Promise<void>;
-  updateUserInfo: (data: UserInfo) => void;
-  loading: boolean;
+  auth?: AccountModel
+  signIn: (authData: AccountModel) => void
+  signOut: () => Promise<void>
+  updateUserInfo: (data: UserInfo) => void
+  loading: boolean
 }
 
 export enum StorageKeys {
-  Token = '@at_palex:authData',
-  RefreshToken = '@at_palex:refreshToken',
+  Token = "@app_shop_example:authData",
+  RefreshToken = "@app_shop_example:refreshToken",
 }

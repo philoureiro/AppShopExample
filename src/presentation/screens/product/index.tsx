@@ -6,7 +6,6 @@ interface IProduct {}
 const Product = () => {
   const route = useRoute()
   const { product } = route.params
-  console.log("item", product)
 
   return (
     product && (
