@@ -5,6 +5,7 @@ interface ContainerProps {
   marginBottom?: number
 }
 export const Container = styled.View<ContainerProps>`
+  justify-content: center;
   height: 100%;
   background-color: white;
   border-radius: 25px;

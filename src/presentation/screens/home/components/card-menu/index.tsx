@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native"
+import { View } from "native-base"
 import React, { useEffect, useState } from "react"
-import { TouchableOpacity } from "react-native"
+import { ActivityIndicator, TouchableOpacity } from "react-native"
 
 import { IGetCategories } from "../../../../../domain/usecases/interfaces/category/getCategories"
 
@@ -25,6 +26,7 @@ interface CardMenuProps {
 }
 const CardMenu = ({ title, marginBottom, getCategories }: CardMenuProps) => {
   const [data, setData] = useState<Category[]>()
+  const [loading, setLoading] = useState(false)
 
   function renderItem(item: Category) {
     return <CardItem item={item} title={title} />
@@ -33,7 +35,9 @@ const CardMenu = ({ title, marginBottom, getCategories }: CardMenuProps) => {
   const navigation = useNavigation()
 
   const makeRequest = async () => {
+    setLoading(true)
     setData(await getCategories.get())
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -42,29 +46,35 @@ const CardMenu = ({ title, marginBottom, getCategories }: CardMenuProps) => {
 
   return (
     <Container marginBottom={marginBottom}>
-      <CardHeader>
-        <LabelBox>
-          <Label>{title}</Label>
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate(
-                title === Routes.Categories
-                  ? Routes.Categories
-                  : Routes.PopularDeals
-              )
-            }
-          >
-            <SeeAllLabel>See All</SeeAllLabel>
-          </TouchableOpacity>
-        </LabelBox>
-        <Row />
-      </CardHeader>
-      <FlatList
-        data={data}
-        renderItem={({ item }) => renderItem(item)}
-        keyExtractor={(item: Category) => item}
-        horizontal
-      />
+      {loading ? (
+        <ActivityIndicator size="large" />
+      ) : (
+        <>
+          <CardHeader>
+            <LabelBox>
+              <Label>{title}</Label>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate(
+                    title === Routes.Categories
+                      ? Routes.Categories
+                      : Routes.PopularDeals
+                  )
+                }
+              >
+                <SeeAllLabel>See All</SeeAllLabel>
+              </TouchableOpacity>
+            </LabelBox>
+            <Row />
+          </CardHeader>
+          <FlatList
+            data={data}
+            renderItem={({ item }) => renderItem(item)}
+            keyExtractor={(item: Category) => item}
+            horizontal
+          />
+        </>
+      )}
     </Container>
   )
 }
