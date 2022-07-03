@@ -19,8 +19,8 @@ import {
   Text,
   TabBar,
 } from "./styles"
-import Routes from "../../../main/navigation/routes-types"
-import { View } from "react-native"
+
+import AllRoutes from "../../../application/navigation/routes-types"
 
 const ThemeScreen = () => {
   function handleNavigate(navigate: any, routeName: any) {
@@ -29,7 +29,7 @@ const ThemeScreen = () => {
 
   function returnIconSelected(routeName: string, selectedTab?: string) {
     switch (routeName) {
-      case Routes.Home:
+      case AllRoutes.Home:
         return (
           <AntDesign
             name="appstore-o"
@@ -37,7 +37,7 @@ const ThemeScreen = () => {
             size={routeName === selectedTab ? 30 : 25}
           />
         )
-      case Routes.Order:
+      case AllRoutes.Order:
         return (
           <FontAwesome
             name="shopping-basket"
@@ -45,7 +45,7 @@ const ThemeScreen = () => {
             size={routeName === selectedTab ? 30 : 22}
           />
         )
-      case Routes.Cart:
+      case AllRoutes.Cart:
         return (
           <MaterialCommunityIcons
             name="cart"
@@ -54,7 +54,7 @@ const ThemeScreen = () => {
           />
         )
 
-      case Routes.Offer:
+      case AllRoutes.Offer:
         return (
           <Entypo
             name="shop"
@@ -62,7 +62,7 @@ const ThemeScreen = () => {
             size={routeName === selectedTab ? 30 : 25}
           />
         )
-      case Routes.More:
+      case AllRoutes.More:
         return (
           <Ionicons
             name="options"

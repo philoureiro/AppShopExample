@@ -2,9 +2,9 @@ import { useNavigation } from "@react-navigation/native"
 
 import React, { useEffect, useState } from "react"
 import { ActivityIndicator, TouchableOpacity } from "react-native"
+import AllRoutes from "../../../../../../application/navigation/routes-types"
 import { IGetCategories } from "../../../../../../domain/usecases/interfaces/category/getCategories"
 import { Category } from "../../../../../../interfaces/models/Category"
-import Routes from "../../../../../../main/navigation/routes-types"
 
 import CardItem from "../card-item"
 import {
@@ -53,7 +53,9 @@ const CardMenu = ({ title, marginBottom, getData }: CardMenuProps) => {
               <Label>{title}</Label>
               <TouchableOpacity
                 onPress={() =>
-                  navigation.navigate(Routes.Categories, { categories: data })
+                  navigation.navigate(AllRoutes.Categories, {
+                    categories: data,
+                  })
                 }
               >
                 <SeeAllLabel>See All</SeeAllLabel>

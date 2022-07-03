@@ -1,4 +1,4 @@
-enum Routes {
+enum AllRoutes {
   Home = "Home",
   Profile = "Profile",
   Order = "Order",
@@ -14,4 +14,4 @@ enum Routes {
   Product = "Product",
 }
 
-export default Routes
+export default AllRoutes

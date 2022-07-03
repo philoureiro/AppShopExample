@@ -2,8 +2,9 @@ import { Entypo } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
 import React, { useState } from "react"
 import { TouchableOpacity } from "react-native"
+import AllRoutes from "../../../../../application/navigation/routes-types"
 import { Product } from "../../../../../interfaces/models/Product"
-import Routes from "../../../../../main/navigation/routes-types"
+
 import {
   Container,
   LabelBox,
@@ -37,7 +38,9 @@ const CardItem = ({ item }: CardItemProps) => {
   return (
     <Container>
       <BoxImage
-        onPress={() => navigation.navigate(Routes.Product, { product: item })}
+        onPress={() =>
+          navigation.navigate(AllRoutes.Product, { product: item })
+        }
       >
         <Image
           resizeMode="stretch"

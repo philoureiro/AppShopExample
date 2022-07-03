@@ -1,44 +1,44 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {AxiosStatic} from 'axios';
-import {StorageKeys} from '../../main/contexts/Auth/AuthType';
+import AsyncStorage from "@react-native-async-storage/async-storage"
+import { AxiosStatic } from "axios"
+import { StorageKeys } from "../../application/contexts/Auth/AuthType"
 
 export function interceptorAxiosRefreshToken(axios: AxiosStatic) {
   axios.interceptors.response.use(
-    response => {
-      return response;
+    (response) => {
+      return response
     },
-    err => {
+    (err) => {
       return new Promise(async (resolve, reject) => {
-        const originalReq = err.config;
+        const originalReq = err.config
         if (
           err?.response?.status === 401 &&
           err?.config &&
           !originalReq?._retry
         ) {
           try {
-            originalReq._retry = true;
+            originalReq._retry = true
 
             const refreshToken = await AsyncStorage.getItem(
-              StorageKeys.RefreshToken,
-            );
+              StorageKeys.RefreshToken
+            )
 
             const {
-              data: {data},
+              data: { data },
             } = await axios.post(`${process.env.API_URL}/auth/refreshToken`, {
               refreshToken,
-            });
+            })
 
-            await AsyncStorage.setItem(StorageKeys.Token, JSON.stringify(data));
-            originalReq.headers.Authorization = `Bearer ${data.accessToken}`;
+            await AsyncStorage.setItem(StorageKeys.Token, JSON.stringify(data))
+            originalReq.headers.Authorization = `Bearer ${data.accessToken}`
 
-            resolve(axios(originalReq));
+            resolve(axios(originalReq))
           } catch (e) {
-            await AsyncStorage.removeItem(StorageKeys.Token);
+            await AsyncStorage.removeItem(StorageKeys.Token)
           }
         } else {
-          reject(err);
+          reject(err)
         }
-      });
-    },
-  );
+      })
+    }
+  )
 }

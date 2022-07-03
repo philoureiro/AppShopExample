@@ -5,10 +5,11 @@ import { Container, Image, ScrollView } from "./styles"
 import CardMenuCategories from "./components/categories/card-menu"
 
 import { useNavigation } from "@react-navigation/native"
-import Routes from "../../../main/navigation/routes-types"
+
 import { makeRemoteGetCategories } from "../../../application/factories/usecases/categories/remote-getCategories-factory"
 import { makeRemoteGetProducts } from "../../../application/factories/usecases/categories/remote-getProducts-factory"
 import CardMenuPopularDeals from "./components/popular-deals/card-menu"
+import AllRoutes from "../../../application/navigation/routes-types"
 
 const Dashboard = () => {
   useEffect(() => {
@@ -28,17 +29,25 @@ const Dashboard = () => {
           getData={makeRemoteGetCategories()}
         />
         <ScrollView horizontal centerContent>
-          <TouchableOpacity onPress={() => navigation.navigate(Routes.Offer)}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate(AllRoutes.Offer)}
+          >
             <Image source={require("../../assets/offers/special-day.png")} />
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => navigation.navigate(Routes.Offer)}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate(AllRoutes.Offer)}
+          >
             <Image source={require("../../assets/offers/black-friday.jpg")} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate(Routes.Offer)}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate(AllRoutes.Offer)}
+          >
             <Image source={require("../../assets/offers/black-friday3.jpg")} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate(Routes.Offer)}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate(AllRoutes.Offer)}
+          >
             <Image source={require("../../assets/offers/black-friday2.jpg")} />
           </TouchableOpacity>
         </ScrollView>

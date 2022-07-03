@@ -26,7 +26,7 @@ const SearchBar = () => {
       <TextBox>
         <View>
           <Label>Hey Philipe 🧑🏽‍💻</Label>
-          <Label marginTop="5px">Lets search your grocery food.</Label>
+          <Label marginTop="5px">Lets search your item or category.</Label>
         </View>
 
         <BoxImage>

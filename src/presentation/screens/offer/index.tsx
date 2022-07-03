@@ -2,7 +2,7 @@ import { View, Image, TouchableOpacity } from "react-native"
 import React from "react"
 import { DefaultCard, DefaultScreen } from "../../components"
 import { useNavigation } from "@react-navigation/native"
-import Routes from "../../../main/navigation/routes-types"
+
 import { getWidthSize } from "../../../utils/responsivity"
 
 const Offer = () => {
@@ -13,7 +13,7 @@ const Offer = () => {
         <DefaultCard marginBottom={200}>
           <TouchableOpacity
             style={{ flex: 1 }}
-            onPress={() => navigation.navigate(Routes.AtDiscount)}
+            onPress={() => navigation.navigate(AllRoutes.AtDiscount)}
           >
             <Image
               source={require("../../assets/offers/special-day.png")}
@@ -27,7 +27,7 @@ const Offer = () => {
 
           <TouchableOpacity
             style={{ flex: 1 }}
-            onPress={() => navigation.navigate(Routes.AtDiscount)}
+            onPress={() => navigation.navigate(AllRoutes.AtDiscount)}
           >
             <Image
               source={require("../../assets/offers/black-friday3.jpg")}
@@ -42,7 +42,7 @@ const Offer = () => {
 
           <TouchableOpacity
             style={{ flex: 1 }}
-            onPress={() => navigation.navigate(Routes.AtDiscount)}
+            onPress={() => navigation.navigate(AllRoutes.AtDiscount)}
           >
             <Image
               source={require("../../assets/offers/black-friday2.jpg")}

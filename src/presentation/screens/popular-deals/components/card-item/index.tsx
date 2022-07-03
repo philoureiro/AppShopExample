@@ -1,8 +1,8 @@
 import { useNavigation } from "@react-navigation/native"
 import React from "react"
+import AllRoutes from "../../../../../application/navigation/routes-types"
 import { Product } from "../../../../../interfaces/models/Product"
-import Routes from "../../../../../main/navigation/routes-types"
-import { returnImageCategory } from "../../../../../utils/returnCategoryImage"
+
 import { Container, LabelBox, Label, BoxImage, Image } from "./styles"
 
 interface CardItemProps {
@@ -14,7 +14,9 @@ const CardItem = ({ item }: CardItemProps) => {
   return (
     <Container>
       <BoxImage
-        onPress={() => navigation.navigate(Routes.Product, { product: item })}
+        onPress={() =>
+          navigation.navigate(AllRoutes.Product, { product: item })
+        }
       >
         <Image source={{ uri: item.image }} />
       </BoxImage>
