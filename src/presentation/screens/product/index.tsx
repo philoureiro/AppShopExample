@@ -45,12 +45,13 @@ const ProductPage = () => {
           namePage={product.title.split(" ").slice(0, 2).join(" ")}
         >
           <Image source={{ uri: product?.image }} resizeMode="stretch" />
-          <Scroll>
-            <Gradient colors={["transparent", "white"]}>
-              <Card marginTop={getWidthSize(200)} />
-              <Card />
-              <Card />
-            </Gradient>
+          <Scroll centerContent>
+            {/* <view colors={["transparent", "white"]}> */}
+            <Card marginTop={getWidthSize(320)} />
+            <Card height={280} />
+            <Card height={280} />
+            <Card marginBottom={100} height={80} />
+            {/* </Gradient> */}
           </Scroll>
         </DefaultScreen>
       </>

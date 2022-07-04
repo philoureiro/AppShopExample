@@ -13,12 +13,15 @@ export const Container = styled.View`
 export const Text = styled.Text``
 
 export const Scroll = styled.ScrollView`
-  /* background-color: yellow; */
+  flex: 1;
+  flex-direction: column;
+  /* background-color: red; */
   border-radius: 25px;
   flex: 1;
   width: 100%;
   height: 100%;
   position: absolute;
+  padding-right: 30px;
 `
 
 export const Gradient = styled(LinearGradient)`
@@ -38,13 +41,17 @@ export const Image = styled.Image`
 `
 
 interface ICardProps {
-  marginTop?: string
+  marginTop?: number
+  marginBottom?: number
+  height?: number
 }
 export const Card = styled.View<ICardProps>`
   border-radius: 25px;
 
   margin-top: ${(props) => (props.marginTop ? props.marginTop : 10)}px;
-  background-color: ${theme.colors.white};
+  margin-bottom: ${(props) => (props.marginBottom ? props.marginBottom : 10)}px;
+  background-color: ${theme.colors.lightWhite};
   width: 100%;
-  height: ${getWidthSize(160)};
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: ${(props) => getWidthSize(props.height || 160)}px;
 `
