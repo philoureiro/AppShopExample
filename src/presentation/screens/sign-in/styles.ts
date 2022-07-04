@@ -19,9 +19,7 @@ export const Image = styled.Image`
 
 export const Container = styled.ScrollView`
   flex: 1;
-  padding: 15px;
-
-  padding: 10px;
+  padding: 20px;
 `
 
 export const LogoContainer = styled.View`

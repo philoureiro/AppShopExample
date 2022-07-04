@@ -29,19 +29,21 @@ export const CircleButton = styled.TouchableOpacity`
   border-radius: 35px;
   align-items: center;
   justify-content: center;
-  background-color: ${theme.colors.primaryGreen};
+  background-color: ${theme.colors.gray};
   box-shadow: gray 0px 3px 8px;
+  border-color: ${theme.colors.primaryGreen};
+  border-width: 2px;
 
   elevation: 6;
   bottom: 24px;
 `
 
 export const InternalCircle = styled.View`
-  background-color: ${theme.colors.lightGreen};
+  background-color: ${theme.colors.primaryGreen};
   justify-content: center;
   align-items: center;
-  width: 75%;
-  height: 75%;
+  width: 80%;
+  height: 80%;
   border-radius: 25px;
 `
 
@@ -49,7 +51,7 @@ export const IconAndFlagBox = styled.View`
   position: absolute;
   justify-content: center;
   align-items: center;
-  bottom: ${getWidthSize(30)}px;
+  bottom: ${getWidthSize(32)}px;
 `
 
 export const Tag = styled.Image`

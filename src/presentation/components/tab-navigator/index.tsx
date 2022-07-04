@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { CurvedBottomBar } from "react-native-curved-bottom-bar"
 import {
   Ionicons,
@@ -7,6 +7,7 @@ import {
   MaterialCommunityIcons,
   Entypo,
 } from "@expo/vector-icons"
+import LottieView from "lottie-react-native"
 import { Cart, Home, More, Offer, Order, SignIn } from "../../screens"
 import { theme } from "../../styles/theme"
 import {
@@ -22,8 +23,10 @@ import {
 
 import { AllRoutes } from "../../../application/navigation/routes-types"
 import { makeRemoteAuthentication } from "../../../application/factories/usecases/categories/remote-authentication-factory"
+import { getWidthSize } from "../../../utils/responsivity"
 
-const ThemeScreen = () => {
+const TabNavigator = () => {
+  const [cartIsEmpty, setCartIsEmpty] = useState(true)
   function handleNavigate(navigate: any, routeName: any) {
     navigate(routeName)
   }
@@ -50,7 +53,7 @@ const ThemeScreen = () => {
         return (
           <MaterialCommunityIcons
             name="cart"
-            color={theme.colors.primaryGreen}
+            color={theme.colors.white}
             size={routeName === selectedTab ? 30 : 25}
           />
         )
@@ -84,17 +87,29 @@ const ThemeScreen = () => {
         borderTopLeftRight={true}
         initialRouteName="Home"
         renderCircle={({ navigate, selectedTab }) => (
-          <CircleButton
-            onPress={() => {
-              handleNavigate(navigate, selectedTab)
-            }}
-          >
+          <CircleButton onPress={() => setCartIsEmpty(!cartIsEmpty)}>
             <InternalCircle>
-              <IconAndFlagBox>
-                <Tag source={require("../../assets/icons/tag.png")} />
-                <Text>99</Text>
-              </IconAndFlagBox>
-              {returnIconSelected("Cart", selectedTab)}
+              {cartIsEmpty ? (
+                returnIconSelected("Cart", selectedTab)
+              ) : (
+                <>
+                  <IconAndFlagBox>
+                    <Tag source={require("../../assets/icons/tag.png")} />
+                    <Text>99</Text>
+                  </IconAndFlagBox>
+
+                  <LottieView
+                    source={require("../../assets/animations/cart.json")}
+                    autoPlay
+                    loop={true}
+                    autoSize
+                    style={{
+                      width: "190%",
+                      justifyContent: "center",
+                    }}
+                  />
+                </>
+              )}
             </InternalCircle>
           </CircleButton>
         )}
@@ -141,4 +156,4 @@ const ThemeScreen = () => {
   )
 }
 
-export default ThemeScreen
+export default TabNavigator

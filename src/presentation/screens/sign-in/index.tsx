@@ -10,23 +10,18 @@ import {
   ClickableTextSignUpButton,
   Container,
   ContainerButtonSignUp,
-  Image,
   LoginContainer,
-  LogoContainer,
 } from "./styles"
 
 import { useAuth } from "../../../application/contexts/Auth/Auth"
 import { AllRoutes } from "../../../application/navigation/routes-types"
 import { DefaultNavigationProps } from "../../../application/navigation/types"
 
-import {
-  isValidEmail,
-  isStrongPassword,
-} from "../../../domain/shared/reggex-patterns"
+import { isStrongPassword } from "../../../domain/shared/reggex-patterns"
 
 import { Button, TextInput, Toast } from "../../components"
 import { getWidthSize } from "../../../utils/responsivity"
-import { useToast, Box } from "native-base"
+import { useToast } from "native-base"
 import { theme } from "../../styles/theme"
 
 type Props = {
