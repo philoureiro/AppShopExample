@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native"
 import React from "react"
-import AllRoutes from "../../../../../../application/navigation/routes-types"
+import { AllRoutes } from "../../../../../../application/navigation/routes-types"
+
 import { Category } from "../../../../../../interfaces/models/Category"
 
 import { returnImageCategory } from "../../../../../../utils/returnCategoryImage"

@@ -2,7 +2,8 @@ import { Entypo } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
 import React, { useState } from "react"
 import { TouchableOpacity } from "react-native"
-import AllRoutes from "../../../../../application/navigation/routes-types"
+import { AllRoutes } from "../../../../../application/navigation/routes-types"
+
 import { Product } from "../../../../../interfaces/models/Product"
 
 import {

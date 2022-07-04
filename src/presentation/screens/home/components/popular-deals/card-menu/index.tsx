@@ -1,7 +1,8 @@
 import { useNavigation } from "@react-navigation/native"
 import React, { useEffect, useState } from "react"
 import { ActivityIndicator, TouchableOpacity } from "react-native"
-import AllRoutes from "../../../../../../application/navigation/routes-types"
+import { AllRoutes } from "../../../../../../application/navigation/routes-types"
+
 import { IGetProducts } from "../../../../../../domain/usecases/interfaces/category/getProducts"
 import { Category } from "../../../../../../interfaces/models/Category"
 import { Product } from "../../../../../../interfaces/models/Product"

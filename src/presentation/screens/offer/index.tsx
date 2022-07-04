@@ -4,6 +4,7 @@ import { DefaultCard, DefaultScreen } from "../../components"
 import { useNavigation } from "@react-navigation/native"
 
 import { getWidthSize } from "../../../utils/responsivity"
+import { AllRoutes } from "../../../application/navigation/routes-types"
 
 const Offer = () => {
   const navigation = useNavigation()

@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native"
 import React from "react"
-import AllRoutes from "../../../../../application/navigation/routes-types"
+import { AllRoutes } from "../../../../../application/navigation/routes-types"
 
 import { returnImageCategory } from "../../../../../utils/returnCategoryImage"
 import { Container, LabelBox, Label, BoxImage, Image } from "./styles"

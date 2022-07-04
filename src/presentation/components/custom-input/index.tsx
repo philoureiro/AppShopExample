@@ -65,7 +65,7 @@ const CustomInput = ({
 
         {secureTextEntry && (
           <TouchableOpacity onPress={() => setIsVisible(!isVisible)}>
-            <FontAwesome name="eye" size={30} />
+            <FontAwesome name={isVisible ? "eye" : "eye-slash"} size={30} />
           </TouchableOpacity>
         )}
         {loading && <ActivityIndicator color={theme.colors.primaryGreen} />}

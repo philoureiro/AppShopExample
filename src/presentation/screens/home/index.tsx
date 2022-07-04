@@ -9,7 +9,7 @@ import { useNavigation } from "@react-navigation/native"
 import { makeRemoteGetCategories } from "../../../application/factories/usecases/categories/remote-getCategories-factory"
 import { makeRemoteGetProducts } from "../../../application/factories/usecases/categories/remote-getProducts-factory"
 import CardMenuPopularDeals from "./components/popular-deals/card-menu"
-import AllRoutes from "../../../application/navigation/routes-types"
+import { AllRoutes } from "../../../application/navigation/routes-types"
 
 const Dashboard = () => {
   useEffect(() => {
