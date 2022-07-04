@@ -8,6 +8,9 @@ interface IDefaultScreen {
   children: React.ReactNode
   height?: number
   scroollable?: boolean
+  bgColor?: string
+  padding?: number
+  marginTop?: number
 }
 const DefaultScreen = ({
   scroollable,
@@ -15,15 +18,32 @@ const DefaultScreen = ({
   namePage,
   showHeader,
   height,
+  bgColor,
+  padding,
+  marginTop,
 }: IDefaultScreen) => {
   return (
     <>
       {showHeader && <Header label={namePage} />}
 
       {scroollable ? (
-        <Scroll height={height}>{children}</Scroll>
+        <Scroll
+          height={height}
+          bgColor={bgColor}
+          marginTop={marginTop}
+          padding={padding}
+        >
+          {children}
+        </Scroll>
       ) : (
-        <Container height={height}>{children}</Container>
+        <Container
+          height={height}
+          bgColor={bgColor}
+          marginTop={marginTop}
+          padding={padding}
+        >
+          {children}
+        </Container>
       )}
     </>
   )

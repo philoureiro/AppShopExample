@@ -8,6 +8,7 @@ import Routes from "./src/application/navigation/routes"
 LogBox.ignoreLogs(["NativeBase:"])
 
 export default function App() {
+  // console.disableYellowBox = true
   return (
     <NativeBaseProvider>
       <AuthProvider>
