@@ -1,4 +1,5 @@
 import React from "react"
+import { ActivityIndicator } from "react-native"
 import { Title, TouchableOpacity } from "./styles"
 
 interface IButton {
@@ -8,6 +9,7 @@ interface IButton {
   marginTop?: number
   marginBottom?: number
 }
+
 const Button = ({
   loading,
   onPress,
@@ -16,8 +18,16 @@ const Button = ({
   marginTop,
 }: IButton) => {
   return (
-    <TouchableOpacity marginTop={marginTop} marginBottom={marginBottom}>
-      <Title>{title}</Title>
+    <TouchableOpacity
+      marginTop={marginTop}
+      marginBottom={marginBottom}
+      onPress={onPress}
+    >
+      {loading ? (
+        <ActivityIndicator size="large" color="white" />
+      ) : (
+        <Title>{title}</Title>
+      )}
     </TouchableOpacity>
   )
 }

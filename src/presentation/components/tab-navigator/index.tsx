@@ -21,6 +21,7 @@ import {
 } from "./styles"
 
 import { AllRoutes } from "../../../application/navigation/routes-types"
+import { makeRemoteAuthentication } from "../../../application/factories/usecases/categories/remote-authentication-factory"
 
 const ThemeScreen = () => {
   function handleNavigate(navigate: any, routeName: any) {
@@ -132,7 +133,7 @@ const ThemeScreen = () => {
         />
         <CurvedBottomBar.Screen
           name="More"
-          children={() => <SignIn />}
+          children={() => <SignIn authetication={makeRemoteAuthentication()} />}
           position="RIGHT"
         />
       </CurvedBottomBar.Navigator>

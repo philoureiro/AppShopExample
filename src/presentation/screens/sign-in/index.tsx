@@ -24,8 +24,11 @@ import {
   isStrongPassword,
 } from "../../../domain/shared/reggex-patterns"
 
-import { Button, TextInput } from "../../components"
+import { Button, TextInput, Toast } from "../../components"
 import { getWidthSize } from "../../../utils/responsivity"
+import { useToast, Box } from "native-base"
+import { theme } from "../../styles/theme"
+
 type Props = {
   authetication: IAuthentication
 }
@@ -34,6 +37,7 @@ export default function SignIn({ authetication }: Props) {
   const [loading, setLoading] = useState(false)
   const context = useAuth()
   const navigation = useNavigation<DefaultNavigationProps>()
+  const toast = useToast()
 
   const {
     control,
@@ -42,7 +46,7 @@ export default function SignIn({ authetication }: Props) {
   } = useForm({
     shouldFocusError: true,
     defaultValues: {
-      email: "",
+      username: "",
       password: "",
     },
   })
@@ -50,10 +54,26 @@ export default function SignIn({ authetication }: Props) {
   const onSubmit = async (data: any) => {
     try {
       setLoading(true)
-      const { accessToken, email, name, refreshToken } =
-        await authetication.auth({ ...data })
-      context.signIn({ accessToken, email, name, refreshToken })
+      const { token } = await authetication.auth({ ...data })
+
+      const payload = { token: token, username: data.username }
+      context.signIn({ ...payload })
+
+      toast.show({
+        render: () => {
+          return (
+            <Toast color={theme.colors.primaryGreen} label={"Login Sucess!"} />
+          )
+        },
+      })
     } catch (err) {
+      toast.show({
+        render: () => {
+          return <Toast color="red" label={err.message} />
+        },
+      })
+
+      setLoading(false)
     } finally {
       setLoading(false)
     }
@@ -81,22 +101,20 @@ export default function SignIn({ authetication }: Props) {
             marginBottom: getWidthSize(-40),
           }}
         />
+        <Text>Default Username: johnd </Text>
+        <Text>Default Password: m38rmF$ </Text>
 
         <TextInput
           control={control}
           errors={errors}
-          name="email"
-          label="E-mail"
+          name="username"
+          label="Username"
           placeholder="Digite seu e-email"
           keyboardType="email-address"
           iconName="email-plus"
           rules={{
-            required: { message: "O Email é obrigatório", value: true },
+            required: { message: "O username é obrigatório", value: true },
             maxLength: 255,
-            pattern: {
-              message: "O Email digitado é inválido.",
-              value: isValidEmail,
-            },
           }}
         />
 

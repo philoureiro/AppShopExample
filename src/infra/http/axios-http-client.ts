@@ -1,15 +1,11 @@
-import axios, { AxiosResponse } from "axios"
+import axios, { AxiosRequestHeaders, AxiosResponse } from "axios"
 import {
   HttpClient,
   HttpRequest,
   HttpResponse,
 } from "../../data/protocols/http"
-import { interceptorAxiosRefreshToken } from "./interceptorAxiosRefreshToken"
 
 export class AxiosHttpClient implements HttpClient {
-  constructor() {
-    interceptorAxiosRefreshToken(axios)
-  }
   async request(data: HttpRequest): Promise<HttpResponse> {
     let axiosResponse: AxiosResponse
     try {
@@ -17,8 +13,9 @@ export class AxiosHttpClient implements HttpClient {
         url: data.url,
         method: data.method,
         data: data.body,
-        headers: data.headers,
+        // headers: this.getAuthHeaders(data.headers),
         params: data.params,
+        responseType: data.responseType,
       })
     } catch (error: any) {
       axiosResponse = error.response
@@ -27,6 +24,19 @@ export class AxiosHttpClient implements HttpClient {
     return {
       statusCode: axiosResponse.status,
       body: axiosResponse?.data?.data || axiosResponse?.data,
+      response: axiosResponse,
     }
+  }
+
+  getAuthHeaders(currentHeaders = {}): AxiosRequestHeaders {
+    // return authorization header with basic auth credentials
+    let token = localStorage.getItem("token")
+    const headers = { ...currentHeaders } as any
+
+    if (token) {
+      headers.authorization = `Bearer ${token}`
+    }
+
+    return headers
   }
 }

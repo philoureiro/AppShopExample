@@ -15,5 +15,4 @@ export interface AuthContextData {
 
 export enum StorageKeys {
   Token = "@app_shop_example:authData",
-  RefreshToken = "@app_shop_example:refreshToken",
 }

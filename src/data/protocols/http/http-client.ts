@@ -1,3 +1,5 @@
+import { AxiosResponse, ResponseType } from "axios"
+
 export type HttpRequest = {
   url: string
   method: HttpMethod
@@ -22,9 +24,11 @@ export enum HttpStatusCode {
   forbidden = 403,
   notFound = 404,
   serverError = 500,
+  conflict = 409,
 }
 
 export type HttpResponse<T = any> = {
   statusCode: HttpStatusCode
   body: T | any
+  response: AxiosResponse
 }
