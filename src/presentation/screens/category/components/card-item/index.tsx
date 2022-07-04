@@ -1,7 +1,11 @@
 import { Entypo } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { TouchableOpacity } from "react-native"
+import {
+  CartType,
+  useCart,
+} from "../../../../../application/contexts/Cart/Cart"
 import { AllRoutes } from "../../../../../application/navigation/routes-types"
 
 import { Product } from "../../../../../interfaces/models/Product"
@@ -25,12 +29,42 @@ const CardItem = ({ item }: CardItemProps) => {
   const navigation = useNavigation()
   const [isSelected, setIsSelected] = useState(false)
   const [numberOfItems, setNumberOfItems] = useState(0)
+  const cart = useCart()
 
   function handleClickOnPlus() {
     isSelected
       ? setNumberOfItems(numberOfItems + 1)
       : setIsSelected(!isSelected)
   }
+
+  useEffect(() => {
+    const cartDataOriginal = cart.data
+    if (numberOfItems >= 1 && isSelected) {
+      const cartDataCurrent = cartDataOriginal?.filter(
+        (prod: CartType) => prod.item.id !== item.id
+      )
+      cartDataCurrent.push({ item: item, quantity: numberOfItems })
+      cart.updateProductsInfo(cartDataCurrent)
+    }
+
+    if (numberOfItems === 0 && cartDataOriginal.length >= 1) {
+      let cartDataCurrent = cart.data?.filter(
+        (prod: CartType) => prod.item.id !== item.id
+      )
+      cart.updateProductsInfo(cartDataCurrent)
+      setIsSelected(false)
+    }
+  }, [numberOfItems])
+
+  useEffect(() => {
+    cart.data.forEach((prod) => {
+      if (prod.item.id === item.id && prod.quantity > 0) {
+        setNumberOfItems(prod.quantity)
+        setIsSelected(true)
+      }
+    })
+  }, [cart.data.length])
+
   function handleClickOnMinus() {
     setNumberOfItems(numberOfItems > 0 ? numberOfItems - 1 : 0)
     setIsSelected(numberOfItems === 0 ? !isSelected : true)

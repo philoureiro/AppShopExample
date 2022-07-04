@@ -1,14 +1,8 @@
 import React, { useState } from "react"
 import { CurvedBottomBar } from "react-native-curved-bottom-bar"
-import {
-  Ionicons,
-  AntDesign,
-  FontAwesome,
-  MaterialCommunityIcons,
-  Entypo,
-} from "@expo/vector-icons"
+
 import LottieView from "lottie-react-native"
-import { Cart, Home, More, Offer, Order, SignIn } from "../../screens"
+import { Cart, Home, Offer, Order, SignIn } from "../../screens"
 import { theme } from "../../styles/theme"
 import {
   CircleButton,
@@ -23,59 +17,17 @@ import {
 
 import { AllRoutes } from "../../../application/navigation/routes-types"
 import { makeRemoteAuthentication } from "../../../application/factories/usecases/categories/remote-authentication-factory"
-import { getWidthSize } from "../../../utils/responsivity"
+
+import returnIconSelected from "../../../utils/returnIcons"
+import { useCart } from "../../../application/contexts/Cart/Cart"
 
 const TabNavigator = () => {
-  const [cartIsEmpty, setCartIsEmpty] = useState(true)
+  const cart = useCart()
+
   function handleNavigate(navigate: any, routeName: any) {
     navigate(routeName)
   }
 
-  function returnIconSelected(routeName: string, selectedTab?: string) {
-    switch (routeName) {
-      case AllRoutes.Home:
-        return (
-          <AntDesign
-            name="appstore-o"
-            color={routeName === selectedTab ? "white" : theme.colors.gray}
-            size={routeName === selectedTab ? 30 : 25}
-          />
-        )
-      case AllRoutes.Order:
-        return (
-          <FontAwesome
-            name="shopping-basket"
-            color={routeName === selectedTab ? "white" : theme.colors.gray}
-            size={routeName === selectedTab ? 30 : 22}
-          />
-        )
-      case AllRoutes.Cart:
-        return (
-          <MaterialCommunityIcons
-            name="cart"
-            color={theme.colors.white}
-            size={routeName === selectedTab ? 30 : 25}
-          />
-        )
-
-      case AllRoutes.Offer:
-        return (
-          <Entypo
-            name="shop"
-            color={routeName === selectedTab ? "white" : theme.colors.gray}
-            size={routeName === selectedTab ? 30 : 25}
-          />
-        )
-      case AllRoutes.More:
-        return (
-          <Ionicons
-            name="options"
-            color={routeName === selectedTab ? "white" : theme.colors.gray}
-            size={routeName === selectedTab ? 35 : 28}
-          />
-        )
-    }
-  }
   return (
     <Container>
       <CurvedBottomBar.Navigator
@@ -87,15 +39,17 @@ const TabNavigator = () => {
         borderTopLeftRight={true}
         initialRouteName="Home"
         renderCircle={({ navigate, selectedTab }) => (
-          <CircleButton onPress={() => setCartIsEmpty(!cartIsEmpty)}>
+          <CircleButton
+            onPress={() => handleNavigate(navigate, AllRoutes.Cart)}
+          >
             <InternalCircle>
-              {cartIsEmpty ? (
+              {cart.data.length === 0 ? (
                 returnIconSelected("Cart", selectedTab)
               ) : (
                 <>
                   <IconAndFlagBox>
                     <Tag source={require("../../assets/icons/tag.png")} />
-                    <Text>99</Text>
+                    <Text>{cart.data.length}</Text>
                   </IconAndFlagBox>
 
                   <LottieView

@@ -15,7 +15,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [loading, setLoading] = useState(true)
 
   const signIn = async (data: AccountModel) => {
-    console.log("context", data)
     setAuthData(data)
     await AsyncStorage.setItem(StorageKeys.Token, JSON.stringify(data))
   }
