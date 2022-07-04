@@ -13,7 +13,7 @@ export class AxiosHttpClient implements HttpClient {
         url: data.url,
         method: data.method,
         data: data.body,
-        // headers: this.getAuthHeaders(data.headers),
+        headers: data.headers,
         params: data.params,
         responseType: data.responseType,
       })
