@@ -33,8 +33,8 @@ export const Gradient = styled(LinearGradient)`
   margin-top: 100;
 `
 export const Image = styled.Image`
-  width: 90%;
-  height: 45%;
+  width: 95%;
+  height: 50%;
 
   border-radius: 25px;
   position: absolute;

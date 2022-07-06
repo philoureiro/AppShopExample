@@ -97,14 +97,14 @@ const CardItem = ({ item }: CardItemProps) => {
 
       <CartController selected={isSelected}>
         <TouchableOpacity onPress={handleClickOnPlus}>
-          <Entypo name="plus" size={25} color="white" />
+          <Entypo name="plus" size={35} color="white" />
         </TouchableOpacity>
 
         {isSelected && (
           <>
             <AmountText>{numberOfItems}</AmountText>
             <TouchableOpacity onPress={handleClickOnMinus}>
-              <Entypo name="minus" size={25} color="white" />
+              <Entypo name="minus" size={35} color="white" />
             </TouchableOpacity>
           </>
         )}
